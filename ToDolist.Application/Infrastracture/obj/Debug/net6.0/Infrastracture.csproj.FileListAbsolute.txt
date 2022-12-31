@@ -1,0 +1,12 @@
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Infrastracture.deps.json
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Infrastracture.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Infrastracture.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.csproj.AssemblyReference.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.GeneratedMSBuildEditorConfig.editorconfig
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.AssemblyInfoInputs.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.AssemblyInfo.cs
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.csproj.CoreCompileInputs.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\refint\Infrastracture.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\ref\Infrastracture.dll

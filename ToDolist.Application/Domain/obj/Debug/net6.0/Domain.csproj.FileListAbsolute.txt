@@ -1,0 +1,12 @@
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\bin\Debug\net6.0\Domain.deps.json
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\bin\Debug\net6.0\Domain.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\bin\Debug\net6.0\Domain.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\refint\Domain.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\Domain.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Domain\obj\Debug\net6.0\ref\Domain.dll

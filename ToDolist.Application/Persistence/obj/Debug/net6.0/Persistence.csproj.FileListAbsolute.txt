@@ -17,3 +17,5 @@ L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\obj\Deb
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\obj\Debug\net6.0\Persistence.pdb
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\obj\Debug\net6.0\Persistence.genruntimeconfig.cache
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\obj\Debug\net6.0\ref\Persistence.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\bin\Debug\net6.0\Common.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Persistence\bin\Debug\net6.0\Common.pdb

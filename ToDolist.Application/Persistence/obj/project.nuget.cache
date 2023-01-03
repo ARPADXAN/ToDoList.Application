@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7B0xOXuhnjlwA6zPP54Nv1/5/zwVIhGfLmbALBqIaj3F/VfmcGCeRIpNThVHkT3Kj4bfwwhXyIIV4hOLY16R1Q==",
+  "dgSpecHash": "m5fXYtTgdYj6O16NP5Hu5A9VWZO4cgZrguDV3bWaUjmKK1x87JKIuXurn0elPMYaJX191vO/fzJn6qiLdqF5Qw==",
   "success": true,
   "projectFilePath": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [

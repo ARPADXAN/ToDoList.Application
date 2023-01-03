@@ -10,3 +10,8 @@ L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\obj\Rel
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\obj\Release\net6.0\refint\Application.dll
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\obj\Release\net6.0\Application.pdb
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\obj\Release\net6.0\ref\Application.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\bin\Release\net6.0\Common.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\bin\Release\net6.0\Domain.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\bin\Release\net6.0\Common.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\bin\Release\net6.0\Domain.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Application\obj\Release\net6.0\Application.csproj.CopyComplete

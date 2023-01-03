@@ -10,3 +10,12 @@ L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\refint\Infrastracture.dll
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.pdb
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\ref\Infrastracture.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Application.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Common.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Domain.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Persistence.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Persistence.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Common.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Domain.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\bin\Debug\net6.0\Application.pdb
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\Infrastracture\obj\Debug\net6.0\Infrastracture.csproj.CopyComplete

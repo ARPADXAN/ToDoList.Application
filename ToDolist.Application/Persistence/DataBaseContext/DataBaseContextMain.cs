@@ -1,5 +1,8 @@
-﻿using Application.Interfaces;
+﻿using Application.Interfaces.Context;
+using Common.Priority;
+using Common.Status;
 using Domain.Attributes;
+using Domain.Entites.Cart;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,8 +18,18 @@ namespace Persistence.DataBaseContext
         {
 
         }
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+        public DbSet<StatusInCarts> StatusInCarts { get; set; }
+        public DbSet<Priority> Priorities { get; set; }
+        public DbSet<PriorityInCarts> PriorityInCarts { get; set; }
+
+        
+
         protected override void OnModelCreating(ModelBuilder Builder)
         {
+            SeedData(Builder);
 
             foreach (var entityType in Builder.Model.GetEntityTypes())
             {
@@ -29,6 +42,19 @@ namespace Persistence.DataBaseContext
                 }
             }
         }
+
+        #region Seed Data
+        public void SeedData(ModelBuilder Builder)
+        {
+            Builder.Entity<Status>().HasData(new Status { Id = 1, Name = nameof(CartInStatus.Suspension) });
+            Builder.Entity<Status>().HasData(new Status { Id = 2, Name = nameof(CartInStatus.NoStarted) });
+            Builder.Entity<Status>().HasData(new Status { Id = 3, Name = nameof(CartInStatus.InProgress) });
+            Builder.Entity<Status>().HasData(new Status { Id = 4, Name = nameof(CartInStatus.InComplete) });
+            Builder.Entity<Priority>().HasData(new Priority { Id = 1, Name = nameof(CartInPriority.General) });
+            Builder.Entity<Priority>().HasData(new Priority { Id = 2, Name = nameof(CartInPriority.Urgent) });
+            Builder.Entity<Priority>().HasData(new Priority { Id = 3, Name = nameof(CartInPriority.Critical) });
+        }
+        #endregion
         #region Save Change
         public override int SaveChanges()
         {

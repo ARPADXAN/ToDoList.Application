@@ -14,6 +14,7 @@
           "Microsoft.EntityFrameworkCore": "7.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.1",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.1",
+          "Microsoft.Extensions.Identity.Core": "7.0.1",
           "Microsoft.Extensions.Identity.Stores": "7.0.1"
         },
         "runtime": {
@@ -763,8 +764,19 @@
         }
       },
       "Application/1.0.0": {
+        "dependencies": {
+          "Common": "1.0.0",
+          "Domain": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "7.0.1",
+          "Microsoft.Extensions.Identity.Core": "7.0.1"
+        },
         "runtime": {
           "Application.dll": {}
+        }
+      },
+      "Common/1.0.0": {
+        "runtime": {
+          "Common.dll": {}
         }
       },
       "Domain/1.0.0": {
@@ -1302,6 +1314,11 @@
       "hashPath": "system.windows.extensions.5.0.0.nupkg.sha512"
     },
     "Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

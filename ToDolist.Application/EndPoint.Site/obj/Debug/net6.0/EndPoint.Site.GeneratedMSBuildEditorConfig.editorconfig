@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

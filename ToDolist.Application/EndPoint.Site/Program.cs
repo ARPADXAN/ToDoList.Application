@@ -1,5 +1,6 @@
-using Application.Interfaces;
+using Application.Interfaces.Context;
 using Infrastracture.IdentityConfig;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Persistence.DataBaseContext;
@@ -15,7 +16,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IDataBaseContext, DataBaseContextMain>();
 builder.Services.AddDbContext<DataBaseContextMain>(options => options
 .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo(Path.GetTempPath()));
+;
 //Add v and Cookie.
 builder.Services.AddAuthorization();
 builder.Services.ConfigureApplicationCookie(options =>

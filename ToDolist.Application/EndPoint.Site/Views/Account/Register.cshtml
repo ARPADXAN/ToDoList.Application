@@ -1,0 +1,89 @@
+﻿@using EndPoint.Site.Models.RegisterViewModels;
+@model RegisterViewModels;
+@{
+    ViewData["Title"] = "ثبت نام";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="slide navbar style.css">
+    <link href="~/sitetemplate/css/stylelogin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            <form id="form"asp-action="Register" method="post" >
+                <form id="form" asp-controller="Account" >
+                    <div class="form-group">
+                            <label for="chk" aria-hidden="true">فرم ثبت نام</label>
+                    </div>
+                    <div class="form-group">
+                            <input type="text" name="FirstName" asp-for="FirstName" placeholder="نام"  style="font-family:'Vazirmatn', sans-serif ;">
+                            <span  asp-validation-for="FirstName" class="field-validation-error" ></span>
+                    </div>
+                    <div class="form-group">
+                            <input type="text" name="LastName" asp-for="LastName" placeholder="نام خانوادگی"  style="font-family:'Vazirmatn', sans-serif ;">
+                            <span asp-validation-for="LastName" class="field-validation-error"  ></span>
+                    </div>
+                    <div class="form-group">
+                            <input type="text" name="Mobile" asp-for="Mobile" placeholder="شماره موبایل" style="font-family:'Vazirmatn', sans-serif ;">
+                            <span asp-validation-for="Mobile" class="field-validation-error" ></span>
+                    </div>
+                    <div class="form-group">
+                            <input type="text" name="Email" asp-for="Email" placeholder="ایمیل" style="font-family:'Vazirmatn', sans-serif ;">
+                            <span asp-validation-for="Email" class="field-validation-error" ></span>
+                    </div>
+                    <div class="form-group">
+                            <input type="password" name="Password" asp-for="Password" placeholder="کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
+                            <span asp-validation-for="Password" class="field-validation-error" ></span>
+                    </div>
+                    <div class="form-group">
+                            <input type="password" name="ConfirmPassword" asp-for="ConfirmPassword" placeholder="تکرار کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
+                            <span asp-validation-for="ConfirmPassword" class="field-validation-error"></span>
+                    </div>
+                    <div>
+                            <input type="submit" asp-controller="Account" asp-action="Register" value="ثبت نام" id="submit" style="font-family:'Vazirmatn', sans-serif ;">
+
+                    </div>
+                </form>
+
+            </form>
+        </div>
+
+      <div class="login" >
+            <form method="get">
+                <div class="form-group">                
+                    <label for="chk" aria-hidden="true">فرم ورود</label>
+
+
+                </div>
+                <div class="form-group">
+                    <input type="email"  placeholder="شماره موبایل" required="" style="font-family:'Vazirmatn', sans-serif ;">
+
+                </div>
+                <div class="form-group">
+                    <input type="password"  placeholder="کلمه عبور" required="" style="font-family:'Vazirmatn', sans-serif ;">
+
+                </div>
+
+                <div class="form-group">
+                     <input  type="submit" value="ورود " id="submit" style="font-family:'Vazirmatn', sans-serif ;">
+
+                </div>
+                  <div id="forget">
+                    <a >فراموش کردن کلمه عبور</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

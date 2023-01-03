@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\User\Commands\" />
     <Folder Include="Services\User\Queries\" />
+    <Folder Include="Services\User\ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
 </Project>

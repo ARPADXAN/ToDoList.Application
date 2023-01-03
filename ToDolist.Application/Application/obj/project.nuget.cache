@@ -1,8 +1,26 @@
 {
   "version": 2,
-  "dgSpecHash": "Bl0xt+iXD77fv8TMjDPGdgA00pZxfzdYkIOk6tE9XOA1XtDCIRgYdJhNcLAEzI2ppcxP/Zx7O4IWpdrj2vw0Hg==",
+  "dgSpecHash": "OlzbZGvxkIhRV53uyLlVbH7YomJvLrvhb1HoID+q5kWc8zx10SueGs+fLawe5EHsCYMEoP1XARAPkwK2zoByiw==",
   "success": true,
   "projectFilePath": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\Application\\Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.1\\microsoft.aspnetcore.cryptography.internal.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.1\\microsoft.aspnetcore.cryptography.keyderivation.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.1\\microsoft.entityframeworkcore.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.1\\microsoft.entityframeworkcore.abstractions.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.1\\microsoft.entityframeworkcore.analyzers.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.identity.core\\7.0.1\\microsoft.extensions.identity.core.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.identity.stores\\7.0.1\\microsoft.extensions.identity.stores.7.0.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.0\\microsoft.extensions.logging.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.options\\7.0.0\\microsoft.extensions.options.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

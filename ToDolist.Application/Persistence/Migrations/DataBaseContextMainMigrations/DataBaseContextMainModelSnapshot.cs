@@ -49,6 +49,9 @@ namespace Persistence.Migrations.DataBaseContextMainMigrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
+                    b.Property<DateTime?>("NoficationDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime?>("NoficationTime")
                         .HasColumnType("datetime2");
 

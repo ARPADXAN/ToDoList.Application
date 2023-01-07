@@ -1,4 +1,6 @@
 using Application.Interfaces.Context;
+using Application.Interfaces.FacadPatterns;
+using Application.Services.TodoItem.FacadPattern;
 using Infrastracture.IdentityConfig;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
@@ -14,11 +16,12 @@ var Configuration =builder.Services.BuildServiceProvider().CreateScope()
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IDataBaseContext, DataBaseContextMain>();
+builder.Services.AddTransient<ICartFacad, CartFacad>();
 builder.Services.AddDbContext<DataBaseContextMain>(options => options
 .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo(Path.GetTempPath()));
-;
+
 //Add v and Cookie.
 builder.Services.AddAuthorization();
 builder.Services.ConfigureApplicationCookie(options =>

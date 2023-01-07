@@ -7,19 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
+    <link rel="stylesheet" href="~/SiteTemplate/css/StyleIndex.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
     <link rel="stylesheet" href="~/SiteTemplate/css/style.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css' rel='stylesheet'>
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="Asset/Css/style.css" />
-    <link rel="stylesheet" href="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> 
 
-
-    <title>Dashboard Sidebar Menu</title> 
 </head >
 <body dir="rtl" >
-    @RenderBody()
-    <nav class="sidebar close">
+    <div class="sidebar1">
+         <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -27,8 +24,8 @@
 
                 </span>
                 <div class="text logo-text">
-                    <span class="name">ToDo</span>
-                    <span class="profession" style="font-family: Vazir, sans-serif;"> ثبت وظایف شما</span>
+                    <span class="name" style="font-family: 'Pacifico', cursive;">ToDo</span>
+                    <span class="profession" > ثبت وظایف شما</span>
                 </div>
 
 
@@ -43,28 +40,28 @@
 
                 <li class="search-box">
                     <i class='bx bx-search icon'></i>
-                    <input style="font-family: Vazir, sans-serif;" type="text" placeholder="جستجو...">
+                    <input type="text" placeholder="جستجو...">
                 </li>
 
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-home-alt icon' ></i>
-                            <span class="text nav-text" style="font-family: Vazir, sans-serif;" >وظایف</span>
+                            <span class="text nav-text"  >وظایف</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-task icon' ></i>
-                            <span style="font-family: Vazir, sans-serif;"  class="text nav-text">ساخت وظیفه جدید </span>
+                            <span   class="text nav-text">ساخت وظیفه جدید </span>
                         </a>
                     </li>
 
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-bell icon'></i>
-                            <span style="font-family: Vazir, sans-serif;" class="text nav-text">اعلان ها</span>
+                            <span class="text nav-text">اعلان ها</span>
                         </a>
                     </li>
 
@@ -96,7 +93,7 @@
                 <li class="">
                     <a href="#">
                         <i class='bx bx-log-out icon' ></i>
-                        <span class="text nav-text" style="font-family: Vazir, sans-serif;">خروج</span>
+                        <span class="text nav-text" >خروج</span>
                     </a>
                 </li>
 
@@ -105,7 +102,7 @@
                         <i class='bx bx-moon icon moon'></i>
                         <i class='bx bx-sun icon sun'></i>
                     </div>
-                    <span class="mode-text text" style="font-family: Vazir, sans-serif;">شب</span>
+                    <span class="mode-text text" >شب</span>
 
                     <div class="toggle-switch">
                         <span class="switch"></span>
@@ -116,14 +113,39 @@
         </div>
 
     </nav>
+    </div>
+   
 
-    <section class="home">
-        <div class="text">Dashboard Sidebar</div>
-    </section>
+    @RenderBody()
 
-    <script src="~/SiteTemplate/js/index.js"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-      <script src="Asset/Js/scriptindex.js"></script>
+        <!--اسکریپت -->
+          <script src="/SiteTemplate/js/ScriptIndex.js"></script> 
+          <script src="~/SiteTemplate/js/main.js"></script>
+          <script src="~/SiteTemplate/js/SideBar.js"></script>
+          <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+          <script type="text/javascript" src="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>       
+
+<script>
+        jalaliDatepicker.startWatch({
+          minDate: "attr",
+          maxDate: "attr",
+          minTime: "attr",
+          maxTime: "attr",
+          persianDigits: true,
+          changeMonthRotateYear: true,
+          showTodayBtn: true,
+          showEmptyBtn: true,
+          topSpace: 10,
+          bottomSpace: 30,
+          dayRendering(opt,input){
+              return {
+                  isHollyDay:opt.day==1
+              }
+          }
+        });
+
+        document.getElementById("aaa").addEventListener("jdp:change", function (e) { console.log(e) });
+        </script>
 
 </body>
 </html>    

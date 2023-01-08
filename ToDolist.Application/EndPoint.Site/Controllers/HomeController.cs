@@ -54,10 +54,7 @@ namespace EndPoint.Site.Controllers
                 },
                     _statusInCarts = new List<statusInCarts>
                 {
-                    new statusInCarts
-                    {
-                        Id=StatusId
-                    },
+                    new statusInCarts {Id=1}
                 },
                     HaveNofication = true,
                     NoficationDate = request.NoficationDate,
@@ -84,8 +81,11 @@ namespace EndPoint.Site.Controllers
                 {
                     new statusInCarts
                     {
-                        Id=StatusId
-                    },
+                        Id=3,
+                    }
+                    
+                   
+                    
                 },
                     HaveNofication = true,
                   

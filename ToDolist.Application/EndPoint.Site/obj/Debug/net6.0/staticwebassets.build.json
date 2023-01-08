@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oID9X3bEtmkhQavTE850Mhj59R8bvp4+1cUpmx7ztP8=",
+  "Hash": "RFltrX6Bd7Phh20ND0Ts37QoHvW+Q6ozXI5pNxQU9bc=",
   "Source": "EndPoint.Site",
   "BasePath": "_content/EndPoint.Site",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\IranSansDN.ttf",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "IranSansDN.ttf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\IranSansDN.ttf"
     },
     {
       "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\js\\site.js",
@@ -1122,6 +1139,23 @@
       "OriginalItemSpec": "wwwroot\\SiteTemplate\\css\\style.css"
     },
     {
+      "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\SiteTemplate\\css\\StyleEditMenu.css",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "SiteTemplate/css/StyleEditMenu.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SiteTemplate\\css\\StyleEditMenu.css"
+    },
+    {
       "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\SiteTemplate\\css\\StyleIndex.css",
       "SourceId": "EndPoint.Site",
       "SourceType": "Discovered",
@@ -1426,6 +1460,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\SiteTemplate\\js\\SideBar.js"
+    },
+    {
+      "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\SiteTemplate\\js\\Tablejs.js",
+      "SourceId": "EndPoint.Site",
+      "SourceType": "Discovered",
+      "ContentRoot": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\",
+      "BasePath": "_content/EndPoint.Site",
+      "RelativePath": "SiteTemplate/js/Tablejs.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\SiteTemplate\\js\\Tablejs.js"
     },
     {
       "Identity": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\EndPoint.Site\\wwwroot\\SiteTemplate\\js\\vendor\\bootstrap.css",

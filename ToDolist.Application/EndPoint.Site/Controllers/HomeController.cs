@@ -26,15 +26,16 @@ namespace EndPoint.Site.Controllers
         }
         #region Add cart 
         [HttpGet]
-        public IActionResult AddCart()
+        public IActionResult AddToDo()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult AddCart(string Title,string Description,bool haveNofication,DateTime NoficationDate,DateTime NoficationTime , long priorityId, long StatusId, IFormCollection form)
+        public IActionResult AddToDo(string Title,string Description,bool haveNofication,DateTime NoficationDate,DateTime NoficationTime , long priorityId, long StatusId, IFormCollection form)
         {
             if (!ModelState.IsValid)
             {
+                
                 return View();
             }
             

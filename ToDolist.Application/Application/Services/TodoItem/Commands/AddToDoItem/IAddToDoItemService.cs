@@ -94,8 +94,7 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
         [Display(Name = " توضیحات")]
         [MaxLength(1200, ErrorMessage = " مقدار {0} نمی تواند بیشتر از {1} باشد  ")]
         public string Description { get; set; }
-
-        public bool HaveNofication { get; set; }
+        public bool? HaveNofication { get; set; }
 
         [Display(Name = " تاریخ اعلان")]
         public DateTime? NoficationDate { get; set; }

@@ -79,65 +79,65 @@ window.onclick = (event) => {
     }
 };
 
-/* create todo  */
-const todo_submit = document.getElementById("todo_submit");
+ create todo  
+const todo_submit = document.getelementbyid("todo_submit");
 
-todo_submit.addEventListener("click", createTodo);
+todo_submit.addeventlistener("click", createtodo);
 
-function createTodo() {
-    const todo_div = document.createElement("div");
-    const input_val = document.getElementById("todo_input").value;
-    const txt = document.createTextNode(input_val);
-    const decortion = document.getElementById("todo_input_1").value;
-    let selector = document.getElementById("myselect").value;
-    console.log(selector);
-    if (selector == "معمولی") {
-        todo_div.style.backgroundColor = "#4caf50";
-    }
-    if (selector == "فوری") {
-        todo_div.style.backgroundColor = "#F39C12";
-    }
-    if (selector == "اضطراری") {
-        todo_div.style.backgroundColor = "#e6177e";
-    }
-    todo_div.appendChild(txt);
-    todo_div.classList.add("todo");
-    todo_div.setAttribute("draggable", "true");
+ function createtodo() {
+     const todo_div = document.createelement("div");
+     const input_val = document.getelementbyid("todo_input").value;
+     const txt = document.createtextnode(input_val);
+     const decortion = document.getelementbyid("todo_input_1").value;
+     let selector = document.getelementbyid("myselect").value;
+     console.log(selector);
+     if (selector == "معمولی") {
+         todo_div.style.backgroundcolor = "#4caf50";
+     }
+     if (selector == "فوری") {
+         todo_div.style.backgroundcolor = "#f39c12";
+     }
+     if (selector == "اضطراری") {
+         todo_div.style.backgroundcolor = "#e6177e";
+     }
+     todo_div.appendchild(txt);
+     todo_div.classlist.add("todo");
+     todo_div.setattribute("draggable", "true");
 
-    todo_div.title = decortion;
-    /* create span */
-    const span = document.createElement("span");
-    const span_txt = document.createTextNode("\u00D7");
-    span.classList.add("close");
-    span.appendChild(span_txt);
+     todo_div.title = decortion;
+     /* create span */
+     const span = document.createelement("span");
+     const span_txt = document.createtextnode("\u00d7");
+     span.classlist.add("close");
+     span.appendchild(span_txt);
 
-    todo_div.appendChild(span);
+     todo_div.appendchild(span);
 
-    no_status.appendChild(todo_div);
+     no_status.appendchild(todo_div);
 
-    span.addEventListener("click", () => {
-        span.parentElement.style.display = "none";
-    });
-    //   console.log(todo_div);
-    todo_form
-    todo_div.addEventListener("dragstart", dragStart);
-    todo_div.addEventListener("dragend", dragEnd);
+     span.addeventlistener("click", () => {
+         span.parentelement.style.display = "none";
+     });
+     //   console.log(todo_div);
+     todo_form
+     todo_div.addeventlistener("dragstart", dragstart);
+     todo_div.addeventlistener("dragend", dragend);
 
-    document.getElementById("todo_input").value = "";
-    document.getElementById("todo_input_1").value = "";
-    document.getElementById("nofication_time_1").value = "";
-    document.getElementById("nofication_time_2").value = "";
-    document.getElementById("myCheck").checked = false;
+     document.getelementbyid("todo_input").value = "";
+     document.getelementbyid("todo_input_1").value = "";
+     document.getelementbyid("nofication_time_1").value = "";
+     document.getelementbyid("nofication_time_2").value = "";
+     document.getelementbyid("mycheck").checked = false;
 
-    todo_form.classList.remove("active");
-    overlay.classList.remove("active");
-}
+     todo_form.classlist.remove("active");
+     overlay.classlist.remove("active");
+ }
 
-const close_btns = document.querySelectorAll(".close");
+const close_btns = document.queryselectorall(".close");
 
-close_btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        btn.parentElement.style.display = "none";
+close_btns.foreach((btn) => {
+    btn.addeventlistener("click", () => {
+        btn.parentelement.style.display = "none";
     });
 });
 

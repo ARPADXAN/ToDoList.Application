@@ -36,7 +36,7 @@ function dragOver(e) {
 }
 
 function dragEnter() {
-    this.style.border = "3px dashed #FD8A8A";
+    this.style.border = "3px dashed #ccc";
     console.log("dragEnter");
 }
 
@@ -133,7 +133,7 @@ function createTodo() {
     overlay.classList.remove("active");
 }
 
-// const close_btns = document.querySelectorAll(".close");
+const close_btns = document.querySelectorAll(".close");
 
 close_btns.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -156,21 +156,4 @@ function myFunction() {
         text2.style.display = "none";
     }
 };
-modeSwitch.addEventListener("click" , () =>{
-    body.classList.toggle("dark");
-      let st = document.getElementsByClassName("status");
-    
-    if(body.classList.contains("dark")){
-        modeText.innerText = "حالت روز";
-        for(i=0;i<st.length;i++){
-            st[i].style.backgroundImage="repeating-linear-gradient(-45deg, transparent 0 10px, rgb(0, 0, 0) 10px 20px )"
-        }
-    }else{
-        modeText.innerText = "حالت شب";
-        for(i=0;i<st.length;i++){
-            st[i].style.backgroundImage="repeating-linear-gradient(-45deg, rgb(0, 191, 255) 0 10px, rgb(0, 0, 0) 10px 15px )"
-        }
-        //dfl[pfell[s]]
-    }
-    
-});
+

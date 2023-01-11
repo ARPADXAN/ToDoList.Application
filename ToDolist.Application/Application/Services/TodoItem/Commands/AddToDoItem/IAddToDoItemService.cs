@@ -41,6 +41,7 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
                     PriorityId = findPriority.Id,
                     Cart = cart,
                     CartId = cart.Id,
+                    
                 });
             };
             List<StatusInCarts> statuslist = new List<StatusInCarts>();
@@ -62,9 +63,8 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
             DB.SaveChanges();
 
             #region Savechange true
-            var AddCart = DB.SaveChanges();
-            if (AddCart > 0)
-            {
+            
+           
                 return new ResultDto<ResultAddCartDto>()
                 {
                     Data = new ResultAddCartDto
@@ -75,21 +75,10 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
                     Message = "ثبت وظیفه شما انجام شد امیدوار به موفقیت آن هستیم"
                 };
 
-            }
+           
             #endregion
 
-            #region save change false
-            return new ResultDto<ResultAddCartDto>()
-            {
-                Data = new ResultAddCartDto
-                {
-                    CartId = 0,
-                },
-                IsSuccess = false,
-                Message = "ثبت وظیفه شما با موفقیت انجام نشد"
-            };
-
-            #endregion
+          
 
 
         }
@@ -115,10 +104,8 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
         public DateTime? NoficationTime { get; set; }
         public bool IsCompelete { get; set; }
         public DateTime? DueComplete { get; set; }
-        public int PriorityInCartsId { get; set; }
-        public int StatusInCartsId { get; set; }
-        public List<priorityInCarts> _priorityInCarts { get; set; }
-        public List<statusInCarts> _statusInCarts { get; set; }
+        public List<priorityInCarts>? _priorityInCarts { get; set; }
+        public List<statusInCarts>? _statusInCarts { get; set; }
 
     }
     public class priorityInCarts

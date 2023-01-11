@@ -20,61 +20,58 @@ namespace EndPoint.Site.Controllers
 
         public IActionResult Index()
         {
-            var result = CF.GetPriorityService.Execute().Data;
-            return View(result);
-        }
-        #region Add cart 
-        public IActionResult AddCart()
-        {
             ViewBag.Priority = new SelectList(CF.GetPriorityService.Execute().Data, "Id", "Name");
-            ViewBag.Status = new SelectList(CF.GetStatusService.Execute().Data, "Id", "Name");
+       
             return View();
         }
-
-        public IActionResult AddCart(RequestAddTodoitemDto request, long priorityId, long StatusId, IFormCollection form)
+        #region Add cart 
+        [HttpGet]
+        public IActionResult AddCart()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddCart(string Title,string Description,bool haveNofication,DateTime NoficationDate,DateTime NoficationTime , long priorityId, long StatusId, IFormCollection form)
         {
             if (!ModelState.IsValid)
             {
-                return View(request);
+                return View();
             }
-            string[] str = form["checkbox"].ToArray();
-            if (str.Length > 1)
+            
+            if (haveNofication==true)
             {
                 var result = CF.AddToDoItemService.Excute(new RequestAddTodoitemDto
                 {
-                    Title = request.Title,
-                    Description = request.Description,
+                    Title =Title,
+                    Description = Description,
                     _priorityInCarts = new List<priorityInCarts>
                 {
                     new priorityInCarts
                     {
                         Id=priorityId
-
-                    },
+                   },
                 },
                     _statusInCarts = new List<statusInCarts>
                 {
                     new statusInCarts {Id=1}
                 },
                     HaveNofication = true,
-                    NoficationDate = request.NoficationDate,
-                    NoficationTime = request.NoficationTime,
+                    NoficationDate = NoficationDate,
+                    NoficationTime = NoficationTime,
                 });
                 return Json(result);
-
             }
             else
             {
                 var result = CF.AddToDoItemService.Excute(new RequestAddTodoitemDto
                 {
-                    Title = request.Title,
-                    Description = request.Description,
+                    Title = Title,
+                    Description = Description,
                     _priorityInCarts = new List<priorityInCarts>
                 {
                     new priorityInCarts
                     {
                         Id=priorityId
-
                     },
                 },
                     _statusInCarts = new List<statusInCarts>
@@ -82,12 +79,9 @@ namespace EndPoint.Site.Controllers
                     new statusInCarts
                     {
                         Id=3,
-                    }
-                    
-                   
-                    
+                    }                 
                 },
-                    HaveNofication = true,
+                    HaveNofication = false,
                   
                 });
                 return Json(result);

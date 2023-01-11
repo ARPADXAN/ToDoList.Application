@@ -1,68 +1,101 @@
-﻿@{
-    ViewData["Title"] = "صفحه اصلی";
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
- <div class="main">
-         <div class="modal" id="todo_form" dir="rtl" >
-            <div class="header">
-              <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
-              <button class="btn close-modal">&times;</button>
-            </div>
-            <div class="body" >
 
-             <div class="form-control"> 
-              <input type="text" class="form-control Inputs" id="todo_input" class="Inputs" placeholder="عنوان"  />
-              <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="NewClub.NewClubName"></span>
-             </div>
-             <div class="form-control">
-              <textarea class="form-control Inputs" id="todo_input_1" placeholder="توضیحات" ></textarea>
-              <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="NewClub.NewClubName"></span>
+  <div class="modal" id="todo_form" dir="rtl" >
+        <div class="header">
+          <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body" >
 
-             </div>
+         <div class="form-control"> 
+          <input type="text" class="form-control Inputs" id="todo_input" class="Inputs" placeholder="عنوان"  />
+          <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="NewClub.NewClubName"></span>
+         </div>
+         <div class="form-control">
+          <textarea class="form-control Inputs" id="todo_input_1" placeholder="توضیحات" ></textarea>
+          <span class="field-validation-error" data-valmsg-replace="true" data-valmsg-for="NewClub.NewClubName"></span>
+
+         </div>
 
 
-              <label  class="modal-body"    >وضعیت</label>
-                <select id="myselect"  >
-                          <option  >معمولی</option>
-                          <option  >فوری </option>
-                          <option  >اضطراری</option>
+          <label  class="modal-body"    >وضعیت</label>
+            <select id="myselect"  >
+                      <option  >معمولی</option>
+                      <option  >فوری </option>
+                      <option  >اضطراری</option>
 
-                </select>
+            </select>
 
-              <label for="" >میخوای برات یاد آوری کنم؟</label>
-              <input  type="checkbox" id="myCheck" onclick="myFunction()">
+          <label for="" >میخوای برات یاد آوری کنم؟</label>
+          <input  type="checkbox" id="myCheck" onclick="myFunction()">
 
-              <br>
-              <div class="form-control" >
-              <input class="form-control Inputs" id="nofication_time_1" data-jdp placeholder="تاریخ" data-jdp data-jdp-min-date="today" style="display:none ;" readonly>
+          <br>
+          <div class="form-control" >
+          <input class="form-control Inputs" id="nofication_time_1" data-jdp placeholder="تاریخ" data-jdp data-jdp-min-date="today" style="display:none ;" readonly>
 
-              </div >
-              <div class="form-control">
-              <input class="form-control Inputs" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />
+          </div >
+          <div class="form-control">
+          <input class="form-control Inputs" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />
 
-              </div>
-
-              </label>
-
-            </div>
-            <div style="text-align: center;"><input  type="submit" value="اضافه کن"  id="todo_submit" style=" width:80%;"/></div>
           </div>
 
+          </label>
 
-          <div class="todo-container">
+        </div>
+        <div style="text-align: center;"><input  type="submit" value="اضافه کن"  id="todo_submit" style=" width:80%;"/></div>
+      </div>
 
-            <div class="status" id="no_status" >
-              <h1  >تعلیق</h1>
-              <button id="add_btn" data-target-modal="#todo_form"  style="text-align: center; font-size: 20px; ">      یه وظیفه تعیین کن  +     </button>
 
-            </div>
-            <div class="status">
-              <h1 >شروع نکرده</h1>
-            </div>
-            <div class="status">
-              <h1 >در انتظار</h1>
-            </div>
-            <div class="status" id="status_compelete">
-              <h1 >تکمیل</h1>
-            </div>
+      <div class="todo-container">
+
+        <div class="status" id="no_status" >
+          <h1  >تعلیق</h1>
+          <button id="add_btn" data-target-modal="#todo_form"  style="text-align: center; font-size: 20px; ">      یه وظیفه تعیین کن  +     </button>
+          <div class="todo" draggable="true" >
+            همکاری با سامان
+            <span class="close">&times;</span>
           </div>
-    </div>
+        </div>
+        <div class="status">
+          <h1 >شروع نکرده</h1>
+        </div>
+        <div class="status">
+          <h1 >در انتظار</h1>
+        </div>
+        <div class="status" id="status_compelete">
+          <h1 >تکمیل</h1>
+        </div>
+      </div>
+
+      
+    <!--اسکریپت -->
+
+      <!-- اکریپت اسلیاد منو -->
+
+    <script type="text/javascript" src="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+    <script>
+    jalaliDatepicker.startWatch({
+      minDate: "attr",
+      maxDate: "attr",
+      minTime: "attr",
+      maxTime: "attr",
+      persianDigits: true,
+      changeMonthRotateYear: true,
+      showTodayBtn: true,
+      showEmptyBtn: true,
+      topSpace: 10,
+      bottomSpace: 30,
+      dayRendering(opt,input){
+          return {
+              isHollyDay:opt.day==1
+          }
+      }
+    });
+
+    document.getElementById("aaa").addEventListener("jdp:change", function (e) { console.log(e) });
+    </script>
+

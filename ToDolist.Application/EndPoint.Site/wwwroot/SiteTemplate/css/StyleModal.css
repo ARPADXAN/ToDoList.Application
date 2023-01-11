@@ -1,0 +1,27 @@
+
+
+@font-face {
+    font-family: "IS";
+    src: url('../font/IranSansDN.ttf');
+}
+
+* {
+    font-family: "IS";
+    padding: 2px;
+}
+
+input {
+    width: 400px;
+    padding: 2px;
+}
+
+checkbox {
+    margin-right: 400px;
+}
+
+#submit {
+    width: 800px;
+    color: white;
+}
+
+

@@ -1,21 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300&display=swap');
 
 @majidh1/jalalidatepicker;
 
-* {
-    font-family: 'Vazirmatn', sans-serif;
-    box-sizing: border-box;
+@font-face {
+    font-family: "FF";
+    src: url(../font/IranSansDN.ttf);
 }
+
+* {
+    font-family: "FF";
+    font-weight: lighter !important;
+}
+
 .div.c {
     transform: scaleY(0.95);
 }
+
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     /* min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Vazirmatn', sans-serif;
 }
 
 .todo-container {
@@ -23,12 +28,9 @@ body {
     height: 800px;
     display: flex;
     justify-content: center;
-    
-    
     flex-wrap: wrap;
-    gap: 0.1rem;
-    margin-right: 200px;
-    font-family: 'Vazirmatn', sans-serif;
+    gap: 0.05rem;
+    margin-right: 150px;
 }
 
 .status {
@@ -37,11 +39,24 @@ body {
     height: 800px;
     background-color: #1d2935;
     position: relative;
-    padding: 60px 1rem 0.5rem;
-    background-image: repeating-linear-gradient(-45deg, rgb(100, 100, 100) 0 10px, rgb(255, 255, 255) 10px 20px );
-    font-family: 'Vazirmatn', sans-serif;
-    text-align:center;
+    padding: 70px 1rem 0.5rem;
+    background-image: repeating-linear-gradient(-45deg, rgb(0, 191, 255) 0 10px, rgb(255, 255, 255) 10px 15px );
+    text-align: center;
+    overflow-y: scroll;
+    direction: rtl;
 }
+
+    .status::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .status::-webkit-scrollbar-track {
+        background-color: aliceblue;
+    }
+
+    .status::-webkit-scrollbar-thumb {
+        background-color: #FD8A8A;
+    }
 
     .status:nth-child(even) {
         background-color: #1d2935;
@@ -53,12 +68,11 @@ body {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: #3498db;
+        background-color: deepskyblue;
         color: #f3f3f3;
-        margin: 0;
+        margin: 10;
         width: 100%;
-        padding: 0.5rem 1rem;
-        font-family: 'Vazirmatn', sans-serif;
+        padding: 0.3rem 1rem;
     }
 
 #add_btn {
@@ -89,10 +103,9 @@ body {
     font-size: 1.5rem;
     margin: 0.5rem 0;
     color: rgb(253, 250, 250);
-    font-family: 'Vazirmatn', sans-serif;
 }
 
-    .todo .close {
+    .todo .closetodo {
         position: absolute;
         left: 1rem;
         top: 0rem;
@@ -124,8 +137,6 @@ body {
     border-radius: 10px;
     z-index: 2;
     background-color: #fff;
-        font-family: 'Vazirmatn', sans-serif;
-
 }
 
     .modal.active {
@@ -165,7 +176,6 @@ body {
     width: 100%;
     margin: 0.25rem;
     border-radius: 5px;
-    font-family: 'Vazirmatn';
     box-shadow: 0 0 10px #719ECE;
     outline: unset !important;
     border: 1px solid #3498db;
@@ -173,13 +183,14 @@ body {
 
 #todo_input_1 {
     resize: none;
+    font-family: 'FF';
 }
 
 #nofication_time_1,
 #todo_submit {
     padding: 0.5rem 1rem;
     width: 100%;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'FF';
     margin: 0.25rem;
     border-radius: 5px;
     border: 1px solid #3498db;
@@ -197,7 +208,7 @@ body {
 #todo_submit {
     padding: 0.5rem 1rem;
     width: 100%;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'FF';
     margin: 0.25rem;
     border-radius: 5px;
     border: 1px solid #3498db;
@@ -216,7 +227,6 @@ body {
 #todo_submit {
     padding: 0.5rem 1rem;
     width: 100%;
-    font-family: 'Vazirmatn', sans-serif;
     margin: 0.25rem;
     border-color: #3498db;
     border-width: 2px;
@@ -225,7 +235,6 @@ body {
 #myselect {
     padding: 0.5rem 1rem;
     width: 100%;
-    font-family: 'Vazirmatn', sans-serif;
     margin: 0.25rem;
     border-radius: 5px;
     outline: unset;

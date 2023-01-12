@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
+using Application.Services.TodoItem.Queries.GetTodo;
 using EndPoint.Site.Models;
 using EndPoint.Site.Models.ViewModels.HomePageViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -17,12 +18,19 @@ namespace EndPoint.Site.Controllers
             CF = cF;
             _logger = logger;
         }
-
         public IActionResult Index()
         {
-            ViewBag.Priority = new SelectList(CF.GetPriorityService.Execute().Data, "Id", "Name");
-       
             return View();
+        }
+        [HttpGet]
+        public IActionResult index(RequestuserDto requestuser)
+        {          
+            ViewBag.Priority = new SelectList(CF.GetPriorityService.Execute().Data, "Id", "Name");
+
+             var gettodo = CF.GetToDoService.Excute(requestuser).Data;
+
+
+            return View(gettodo);
         }
         #region Add cart 
         [HttpGet]
@@ -31,19 +39,19 @@ namespace EndPoint.Site.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddToDo(string Title,string Description,bool haveNofication,DateTime NoficationDate,DateTime NoficationTime , long priorityId, long StatusId, IFormCollection form)
+        public IActionResult AddToDo(string Title, string? Description, bool haveNofication, string? NoficationDate, string? NoficationTime, long priorityId, long StatusId, IFormCollection form)
         {
             if (!ModelState.IsValid)
             {
-                
+
                 return View();
             }
-            
-            if (haveNofication==true)
+
+            if (haveNofication == true)
             {
                 var result = CF.AddToDoItemService.Excute(new RequestAddTodoitemDto
                 {
-                    Title =Title,
+                    Title = Title,
                     Description = Description,
                     _priorityInCarts = new List<priorityInCarts>
                 {
@@ -80,10 +88,10 @@ namespace EndPoint.Site.Controllers
                     new statusInCarts
                     {
                         Id=3,
-                    }                 
+                    }
                 },
                     HaveNofication = false,
-                  
+
                 });
                 return Json(result);
 
@@ -102,5 +110,12 @@ namespace EndPoint.Site.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        #region Get Todo list
+        public IActionResult GetTodo()
+        {
+            return View();
+        }
+        #endregion
     }
 }

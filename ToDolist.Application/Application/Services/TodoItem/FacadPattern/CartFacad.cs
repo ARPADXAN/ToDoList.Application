@@ -3,6 +3,7 @@ using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Queries.GetPriority;
 using Application.Services.TodoItem.Queries.GetStatus;
+using Application.Services.TodoItem.Queries.GetTodo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,19 @@ namespace Application.Services.TodoItem.FacadPattern
                 return getStatusService = getStatusService ?? new GetStatusService(DB);
             }
         }
+
+        #endregion
+
+        #region Get ToDo
+        private IGetToDoService getToDoService;
+        public IGetToDoService GetToDoService
+        {
+            get
+            {
+                return getToDoService = getToDoService ?? new GetToDoService(DB);
+            }
+        }
+
         #endregion
 
     }

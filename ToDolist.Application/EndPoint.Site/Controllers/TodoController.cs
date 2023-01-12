@@ -1,9 +1,11 @@
 ﻿using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
+using Application.Services.TodoItem.Queries.GetTodo;
 using Domain.Entites.Cart;
 using EndPoint.Site.Models.RegisterViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Drawing;
 
 namespace EndPoint.Site.Controllers
 {
@@ -14,10 +16,15 @@ namespace EndPoint.Site.Controllers
         {
             CF = cF;
         }
-        public IActionResult Index()
+        #region MyRegion
+        public IActionResult Index(RequestuserDto requestuser)
         {
-            return View();
+            var gettodo = CF.GetToDoService.Excute(requestuser).Data;
+            return View(gettodo);
+           
         }
+        #endregion
+
 
 
         #region Create Todo
@@ -36,7 +43,7 @@ namespace EndPoint.Site.Controllers
             {
                 return View(request);
             }
-            if (request.HaveNofication==true)
+            if (request.HaveNofication == true)
             {
 
                 var result = CF.AddToDoItemService.Excute(new RequestAddTodoitemDto
@@ -44,7 +51,7 @@ namespace EndPoint.Site.Controllers
                     Title = request.Title,
                     Description = request.Description,
 
-                    _priorityInCarts  = new List<priorityInCarts>
+                    _priorityInCarts = new List<priorityInCarts>
                     {
                         new priorityInCarts
                         {
@@ -94,11 +101,9 @@ namespace EndPoint.Site.Controllers
         }
 
         #endregion
-        public  IActionResult Creat()
-        {
-            return View();
 
-        }
+
+
 
 
     }

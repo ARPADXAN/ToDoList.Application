@@ -72,7 +72,7 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
                         CartId = cart.Id,
                     },
                     IsSuccess = true,
-                    Message = "ثبت وظیفه شما انجام شد امیدوار به موفقیت آن هستیم"
+                    Message = "ثبت وظیفه شما انجام شد امیدوار به موفقیت  در انجام آن هستیم"
                 };
 
            
@@ -94,13 +94,13 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
         [Display(Name = " توضیحات")]
         [MaxLength(1200, ErrorMessage = " مقدار {0} نمی تواند بیشتر از {1} باشد  ")]
         public string Description { get; set; }
-        public bool? HaveNofication { get; set; }
+        public bool HaveNofication { get; set; }
 
         [Display(Name = " تاریخ اعلان")]
-        public DateTime? NoficationDate { get; set; }
+        public string? NoficationDate { get; set; }
 
         [Display(Name = " زمان اعلان")]
-        public DateTime? NoficationTime { get; set; }
+        public string? NoficationTime { get; set; }
         public bool IsCompelete { get; set; }
         public DateTime? DueComplete { get; set; }
         public List<priorityInCarts>? _priorityInCarts { get; set; }

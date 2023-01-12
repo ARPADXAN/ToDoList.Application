@@ -39,15 +39,15 @@ modeSwitch.addEventListener("click" , () =>{
         modeText.innerText = "حالت روز";
         localStorage.setItem("mode","niget")
         for(i=0;i<st.length;i++){
-            st[i].style.backgroundImage="repeating-linear-gradient(-45deg, transparent 0 10px, rgb(0, 0, 0) 10px 20px )"
+            st[i].style.backgroundImage ="repeating-linear-gradient(-45deg, transparent 0 10px, rgb(0, 0, 0) 10px 20px)"
         }
     }else{
         modeText.innerText = "حالت شب";
         localStorage.setItem("mode","morning")
         for(i=0;i<st.length;i++){
-            st[i].style.backgroundImage="repeating-linear-gradient(-45deg, rgb(100, 100, 100) 0 10px, rgb(255, 255, 255) 10px 20px )"
+            st[i].style.backgroundImage="repeating-linear-gradient(-45deg, rgb(0, 191, 255) 0 10px, rgb(255, 255, 255) 10px 15px  )"
         }
         //dfl[pfell[s]]
     }
-    
+//    -45deg, rgb(100, 100, 100) 0 10px, rgb(255, 255, 255) 10px 20px
 });

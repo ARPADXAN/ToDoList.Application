@@ -49,11 +49,11 @@ namespace Persistence.Migrations.DataBaseContextMainMigrations
                     b.Property<bool>("IsRemoved")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime?>("NoficationDate")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("NoficationDate")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("NoficationTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("NoficationTime")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("RemoveTime")
                         .HasColumnType("datetime2");

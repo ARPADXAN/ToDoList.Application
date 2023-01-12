@@ -1,6 +1,7 @@
 ﻿using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Queries.GetPriority;
 using Application.Services.TodoItem.Queries.GetStatus;
+using Application.Services.TodoItem.Queries.GetTodo;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,6 @@ namespace Application.Interfaces.FacadPatterns
         AddToDoItemService AddToDoItemService { get; }
         IGetPriorityService GetPriorityService { get; }
         IGetStatusService GetStatusService { get; }
+        IGetToDoService GetToDoService { get; }
     }
 }

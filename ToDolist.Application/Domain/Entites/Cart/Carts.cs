@@ -15,8 +15,8 @@ namespace Domain.Entites.Cart
         public string Title { get; set; }
         public string Description { get; set; }
         public bool HaveNofication { get; set; }
-        public DateTime? NoficationDate { get; set; }
-        public DateTime? NoficationTime { get; set; }
+        public string? NoficationDate { get; set; }
+        public string? NoficationTime { get; set; }
         public bool IsCompelete { get; set; }
         public DateTime? DueComplete { get; set; }
         public ICollection<PriorityInCarts> PriorityInCarts { get; set; }

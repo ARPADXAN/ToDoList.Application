@@ -79,7 +79,7 @@ window.onclick = (event) => {
     }
 };
 
- create todo  
+/* create todo*/  
 const todo_submit = document.getelementbyid("todo_submit");
 
 todo_submit.addeventlistener("click", createtodo);
@@ -133,7 +133,7 @@ todo_submit.addeventlistener("click", createtodo);
      overlay.classlist.remove("active");
  }
 
-const close_btns = document.queryselectorall(".close");
+const close_btns = document.queryselectorall(".closetodo");
 
 close_btns.foreach((btn) => {
     btn.addeventlistener("click", () => {

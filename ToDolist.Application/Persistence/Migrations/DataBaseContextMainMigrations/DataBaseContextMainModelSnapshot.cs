@@ -47,7 +47,9 @@ namespace Persistence.Migrations.DataBaseContextMainMigrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsRemoved")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("NoficationDate")
                         .HasColumnType("nvarchar(max)");
@@ -119,7 +121,9 @@ namespace Persistence.Migrations.DataBaseContextMainMigrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<long>("PriorityId")
                         .HasColumnType("bigint");
@@ -193,7 +197,9 @@ namespace Persistence.Migrations.DataBaseContextMainMigrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsRemoved")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<DateTime?>("RemoveTime")
                         .HasColumnType("datetime2");

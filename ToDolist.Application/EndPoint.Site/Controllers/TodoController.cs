@@ -1,14 +1,19 @@
 ﻿using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
+using Application.Services.TodoItem.Commands.EditTodoItem;
 using Application.Services.TodoItem.Queries.GetTodo;
 using Domain.Entites.Cart;
+using EndPoint.Site.Models;
 using EndPoint.Site.Models.RegisterViewModels;
+using EndPoint.Site.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Drawing;
 
 namespace EndPoint.Site.Controllers
 {
+   
     public class TodoController : Controller
     {
         private readonly ICartFacad CF;
@@ -16,7 +21,7 @@ namespace EndPoint.Site.Controllers
         {
             CF = cF;
         }
-        #region MyRegion
+        #region Get ToDo
         public IActionResult Index(RequestuserDto requestuser)
         {
             var gettodo = CF.GetToDoService.Excute(requestuser).Data;
@@ -25,7 +30,7 @@ namespace EndPoint.Site.Controllers
         }
         #endregion
 
-
+       
 
         #region Create Todo
         [HttpGet]
@@ -35,7 +40,7 @@ namespace EndPoint.Site.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult AddTodo(RequestAddTodoitemDto request, long priorityId, long statusId, IFormCollection form)
+        public IActionResult AddTodo(AddViewModel request, IFormCollection form)
         {
             ViewData.ModelState.Values.Where(v => v.Errors.Count != 0).Count();
 
@@ -55,7 +60,7 @@ namespace EndPoint.Site.Controllers
                     {
                         new priorityInCarts
                         {
-                            Id=priorityId,
+                            Id=request.priorityId,
                         }
                     },
                     _statusInCarts = new List<statusInCarts>
@@ -84,7 +89,7 @@ namespace EndPoint.Site.Controllers
                     {
                         new priorityInCarts
                         {
-                            Id=priorityId,
+                            Id=request.priorityId,
                         }
                     },
                     _statusInCarts = new List<statusInCarts>
@@ -100,6 +105,14 @@ namespace EndPoint.Site.Controllers
             }
         }
 
+        #endregion
+
+        #region Edit Todo
+        public IActionResult EditTodor(RequestUserForEditToDoService request)
+        {
+            var result = CF.EditToDoItemService.Execute(request);
+            return Json(result);
+        }
         #endregion
 
 

@@ -6,18 +6,22 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row">
+    <div class="col">
+  <button  id="add_btn" data-target-modal="#todo_form"  style="margin-top:-772px;margin-right:500px;width:300px; text-align: center; font-size: 20px; ">      یه وظیفه تعیین کن  +     </button>
 
-
-    
-         <form id="form">
+    </div>
+    <div class="col">
+<div id="lagen">
+        <form id="form">
               <div class="modal" id="todo_form" dir="rtl" >
               <div class="header">
                     <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
                       <button id="closemodal" type="button" class="btn close-modal">&times;</button>
                     </div>
-             
+
                 <div class="body" >
-             
+
                     <div class="form-control"> 
                        <input type="text" name="Title" class="form-control Inputs" id="todo_input"  placeholder="عنوان"  />
                     </div>
@@ -37,87 +41,217 @@
                        <input class="form-control Inputs"  name="NoficationTime" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />                  
                     </div>
                     <div style="text-align: center;">
-                       <input  type="button" onclick="SubmitEvent()" id="todo_submit" value="اضافه کن"  style=" width:80%;"/>
+                       <input  type="button" onclick="SubmitEvent()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
                     </div>
+
                </div>
-                  
+
             </div>
 
          </form>
 
 
-      <div class="todo-container">
-   
-        <div class="status" id="no_status" >
-          <h1  >تعلیق</h1>
-          <button id="add_btn" data-target-modal="#todo_form"  style="text-align: center; font-size: 20px; ">      یه وظیفه تعیین کن  +     </button>
-         @foreach (var list in Model.GetToDoDtos)
-        {
-            @if (list.StatusId==1)
-            {
-              
-                    if (list.PriorityId == 1)
-                  {
-                                 <div class="todo"style="background-color:rgb(76, 175, 80)" draggable="true" >
-                        @list.Title
-                       <span class="closetodo" id="closetodo">&times;</span>
-                     </div>
-                  }
-                    if (list.PriorityId == 2)
-                  {
-                                 <div class="todo"style="background-color:rgb(243, 156, 18)" draggable="true" >
-                        @list.Title
-                       <span class="closetodo" id="closetodo">&times;</span>
-                     </div>
-                  }
-                  else
-                  {
-                                   <div class="todo"style="background-color:rgb(230, 23, 126);" draggable="true" >
-                        @list.Title
-                        <span class="closetodo" id="closetodo">&times;</span>
-                      </div>
+     <div id="mother">
+          <div class="todo-container" style="margin-top:00px">
 
-                  }
+                    <div class="status" id="no_status" >
+                      <h1  >تعلیق</h1>
+                        @*                      <button id="add_btn" data-target-modal="#todo_form"  style="text-align: center; font-size: 20px; ">      یه وظیفه تعیین کن  +     </button>
+*@                      <div style="display: none;" id="todo" class="todo" draggable="true" >
+                    همکاری با سامان
+                    <span class="close">&times;</span>
+                  </div>
+                        @foreach (var list in Model.GetToDoDtos)
+                        {
+                            @if (list.StatusId == 1)
+                            {
 
-                  
-                  
-              
-                   
-               
-        }
+                                if (list.PriorityId == 1)
+                                {
+                                                                                             <div data-Id="@list.Id" class="todo"style="background-color:rgb(76, 175, 80)" draggable="true" >
+                                        @list.Title
+                                                                                                                       <span class="closetodo"  onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                             </div>
+                                }
+                                if (list.PriorityId == 2)
+                                {
+                                                                                              <div data-Id="@list.Id" class="todo"style="background-color:rgb(243, 156, 18)" draggable="true" >
+                                        @list.Title
+                                                                                                                                  <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                             </div>
+                                }
+                                if (list.PriorityId == 3)
+                                {
+                                                                                               <div data-Id="@list.Id" class="todo"style="background-color:rgb(230, 23, 126);" draggable="true" >
+                                        @list.Title
+                                                                                                                        <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                              </div>
 
-        }
-       
-         
-        </div>
-        <div class="status">
-          <h1 >شروع نکرده</h1>
-        </div>
-        <div class="status">
-          <h1 >در انتظار</h1>
-        </div>
-        <div class="status" id="status_compelete">
-          <h1 >تکمیل</h1>
-        </div>
-      </div>
+                                }
 
-      
+
+
+
+
+
+                            }
+
+                        }
+
+
+                    </div>
+                    <div class="status" id="status_notstart">
+                      <h1 >شروع نکرده</h1>
+                        @foreach (var list in Model.GetToDoDtos)
+                        {
+                            @if (list.StatusId == 2)
+                            {
+
+                                if (list.PriorityId == 1)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(76, 175, 80)" draggable="true" >
+                                        @list.Title
+                                                                                                                          <span class="closetodo" onclick="RemoveCart('@list.Id'); return false"  id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 2)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(243, 156, 18)" draggable="true" >
+                                        @list.Title
+                                                                                                                           <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 3)
+                                {
+                                                                                                           <div class="todo"style="background-color:rgb(230, 23, 126);" draggable="true" >
+                                        @list.Title
+                                                                                                                            <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                          </div>
+
+                                }
+
+
+
+
+
+
+                            }
+
+                        }
+                    </div>
+                    <div class="status" id="status_inprogress">
+                      <h1 >در انتظار</h1>
+                        @foreach (var list in Model.GetToDoDtos)
+                        {
+                            @if (list.StatusId == 3)
+                            {
+
+                                if (list.PriorityId == 1)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(76, 175, 80)" draggable="true" >
+                                        @list.Title
+                                                                                                                     <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 2)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(243, 156, 18)" draggable="true" >
+                                        @list.Title
+                                                                                                                     <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 3)
+                                {
+                                                                                                           <div class="todo"style="background-color:rgb(230, 23, 126);" draggable="true" >
+                                        @list.Title
+                                                                                                                      <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                          </div>
+
+                                }
+
+
+
+
+
+
+                            }
+
+                        }
+                    </div>
+                    <div class="status" id="status_compelete">
+                      <h1 >تکمیل</h1>
+                        @foreach (var list in Model.GetToDoDtos)
+                        {
+                            @if (list.StatusId == 4)
+                            {
+
+                                if (list.PriorityId == 1)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(76, 175, 80)" draggable="true" >
+                                        @list.Title
+                                                                                                                    <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 2)
+                                {
+                                                                                                         <div class="todo"style="background-color:rgb(243, 156, 18)" draggable="true" >
+                                        @list.Title
+                                                                                                                    <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                         </div>
+                                }
+                                if (list.PriorityId == 3)
+                                {
+                                                                                                           <div class="todo"style="background-color:rgb(230, 23, 126);" draggable="true" >
+                                        @list.Title
+                                                                                                                     <span class="closetodo" onclick="RemoveCart('@list.Id'); return false" id="closetodo">&times;</span>
+                                                                                                          </div>
+
+                                }
+
+
+
+
+
+
+                            }
+
+                        }
+                    </div>
+                  </div>
+          </div>
+     </div>
+    </div>
+
+</div>
+
+
+
+
+
+
     <!--اسکریپت -->
 
     <!-- اکریپت اسلیاد منو -->
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
-    <script>
-     $(".closetodo").on("click", function (event) {
-    $(this).parent().fadeOut();
-    event.preventDefault();
-});
-    </script>
-    <script>
-    jalaliDatepicker.startWatch({
+        <script>
+        //delete fake
+      //$(".closetodo").on("click", function (event) {
+      //$(this).parent().fadeOut();
+      //event.preventDefault();
+      //});
+        </script>
+
+        <script>
+
+
+        //perisan Datepicker
+
+    jalaliDatepicker.startWatch(
+    {
       minDate: "attr",
       maxDate: "attr",
       minTime: "attr",
@@ -138,9 +272,12 @@
     document.getElementById("aaa").addEventListener("jdp:change", function (e) { console.log(e) });
     </script>
 
-           <script>
+        <script>
+                       //Add ToDo
 
                     function SubmitEvent() {
+
+
                 swal.fire({
                     title: 'ثبت وظیفه',
                     text: "اگه انجامش میدی برات اضافه کنم؟",
@@ -161,7 +298,7 @@
                             dataType: 'json',
                             type: "POST",
                             url: 'Home/AddToDo/',
-                          
+
                             data: data1,
                             data: data2,
                             success: function (data) {
@@ -170,11 +307,15 @@
                                         'موفق!',
                                         data.message,
                                         'success'
-                                    ).then(document.getElementById("form").reset())
-                                    .then(document.getElementById("closemodal").click());
-                                      
+                                    ).then(function (isConfirm) {
+                                     $("#lagen").load(location.href + " #lagen")
+                                     (document.getElementById("form").reset())
+                                     (document.getElementById("closemodal").click())
+                                              
+                                            });
                                     
-
+                                    
+                                  
 
                                 }
                                 else {
@@ -200,5 +341,60 @@
 
 
         </script>
-    
-      
+
+        <script>
+
+                  function RemoveCart(CartId) {
+                        swal.fire({
+                            title: 'حذف کارت ;',
+                            text: "میخوای پاکش کنم؟",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#7cacbe',
+                            confirmButtonText: 'آره ،   حذفش کن بره',
+                            cancelButtonText: 'فعلا نه!'
+                        }).then((result) => {
+                            if (result.value) {
+                                var postData = {
+                                        'CartId': CartId,
+                                };
+
+                                $.ajax({
+                                    contentType: 'application/x-www-form-urlencoded',
+                                    dataType: 'json',
+                                    type: "POST",
+                                            url: "RemoveCart",
+                                    data: postData,
+                                    success: function (data) {
+                                        if (data.isSuccess == true) {
+                                            swal.fire(
+                                                'موفق!',
+                                                data.message,
+                                                'success'
+                                            ).then(function (isConfirm) {
+                                               $("#lagen").load(location.href + " #lagen")
+                                            });
+                                        }
+                                        else {
+
+                                            swal.fire(
+                                                'هشدار!',
+                                                data.message,
+                                                'warning'
+                                            );
+
+                                        }
+                                    },
+                                    error: function (request, status, error) {
+                                        alert(request.responseText);
+                                    }
+
+                                });
+
+                            }
+                        })
+                    }
+        </script>
+
+

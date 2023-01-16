@@ -2,6 +2,7 @@ using Application.Interfaces.Context;
 using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.FacadPattern;
 using Infrastracture.IdentityConfig;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -27,11 +28,13 @@ builder.Services.AddAuthorization();
 builder.Services.ConfigureApplicationCookie(options =>
 {
     options.ExpireTimeSpan = TimeSpan.FromDays(7);
-    options.LoginPath = "/Account/Login";
+    options.LoginPath = "/Account/Register";
     options.LogoutPath = "/Account/LogOut";
-    options.AccessDeniedPath = "/Account/AccessDenied";
+
+    options.AccessDeniedPath = "/Account/Register";
     options.SlidingExpiration = true;
 });
+
 //AddService//
 builder.Services.AddidentityService(Configuration);
 var app = builder.Build();

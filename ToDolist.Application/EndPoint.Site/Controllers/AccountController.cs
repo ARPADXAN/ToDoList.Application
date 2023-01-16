@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using EndPoint.Site.Models.RegisterViewModels;
+using Microsoft.CodeAnalysis.VisualBasic;
+using EndPoint.Site.Models.ViewModels;
 
 namespace EndPoint.Site.Controllers
 {
@@ -9,24 +11,24 @@ namespace EndPoint.Site.Controllers
     {
 
         private readonly UserManager<Users> _userManager;
-        public AccountController(UserManager<Users> usermaneger)
+        private readonly SignInManager<Users> signInManager;
+        public AccountController(UserManager<Users> usermaneger, SignInManager<Users> signInManager)
         {
             _userManager = usermaneger;
-
+            this.signInManager = signInManager;
         }
 
 
         #region Register
-        public IActionResult Register()
-        {
-            return View();
-        }
-        
+
+
         [HttpPost]
         public IActionResult Register(RegisterViewModels request)
         {
             if (!ModelState.IsValid)
             {
+                ModelState.AddModelError("", "خطایی رخ داد");
+
                 return View(request);
             }
             Users user = new Users()
@@ -35,16 +37,23 @@ namespace EndPoint.Site.Controllers
                 Lastname = request.LastName,
                 UserName = request.Mobile,
                 PhoneNumber = request.Mobile,
-                Email=request.Email,
+                Email = request.Email,
                 PasswordHash = request.Password,
 
-              
+
 
             };
+
             var result = _userManager.CreateAsync(user, request.Password).Result;
+
             if (result.Succeeded)
             {
-                return RedirectToAction("index","Home");
+               
+                
+                    
+                    return Json("isuccess");
+
+                
 
             }
 
@@ -52,9 +61,54 @@ namespace EndPoint.Site.Controllers
             {
                 ModelState.AddModelError(item.Code, item.Description);
             }
-            return View(request);
+            return Json(request);
         }
         #endregion
 
+
+        #region signin
+        public IActionResult login(string returnUrl = "/")
+        {
+            return View(new LoginViewModels
+            {
+                ReturnUrl = returnUrl,
+            });
+        }
+        [HttpPost]
+        public IActionResult login(LoginViewModels model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json(model);
+            }
+            var users = _userManager.FindByNameAsync(model.Mobile).Result;
+            if (users == null)
+            {
+                ModelState.AddModelError("", "کاربر مورد نظر یافت نشد");
+                return Json(model);
+            }
+            signInManager.SignOutAsync();
+            var result = signInManager.PasswordSignInAsync(users, model.Password, model.IsPerssitence, true).Result;
+
+            if (result.Succeeded)
+            {
+
+                return Json("isuccess");
+            }
+            if (result.RequiresTwoFactor)
+            {
+                //
+            }
+            return Json(model);
+        }
+        #endregion
+
+        #region Sign Out
+        public IActionResult LogOut()
+        {
+            signInManager.SignOutAsync();
+            return RedirectToAction("login", "Account");
+        }
+        #endregion
     }
 }

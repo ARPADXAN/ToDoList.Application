@@ -63,14 +63,15 @@ body {
     }
 
     .status h1 {
+        margin-block:0px;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
         position: absolute;
-        top: 0;
+        top: 0 !important;
         left: 0;
         background-color: deepskyblue;
         color: #f3f3f3;
-        margin: 10;
+        margin-top: 0px;
         width: 100%;
         padding: 0.3rem 1rem;
     }

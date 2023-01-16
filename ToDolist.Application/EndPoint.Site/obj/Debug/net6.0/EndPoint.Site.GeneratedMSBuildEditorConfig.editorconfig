@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site
 build_property._RazorSourceGeneratorDebug = 
 
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Account/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxsb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +45,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/AddTodo.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xBZGRUb2RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/AddToDoPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xBZGRUb0RvUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/Components/AddTodo/AddToDo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xDb21wb25lbnRzXEFkZFRvZG9cQWRkVG9Eby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/Index.cshtml]

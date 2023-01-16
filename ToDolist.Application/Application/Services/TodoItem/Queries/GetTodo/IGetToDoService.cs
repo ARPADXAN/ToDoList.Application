@@ -25,7 +25,11 @@ namespace Application.Services.TodoItem.Queries.GetTodo
             var todo = DB.Carts.Include(p => p.PriorityInCarts).ThenInclude(x=>x.Priority)
                 .Include(p => p.StatusInCarts).ThenInclude(x=>x.Status)
                 .AsQueryable();
-                
+
+            if (todo == null)
+            {
+               throw new Exception ("product Not Found");
+            };
             if (!string.IsNullOrWhiteSpace(requestuser.serachkey))
             {
                 todo = todo.Where(p => p.Title.Contains(requestuser.serachkey) &&

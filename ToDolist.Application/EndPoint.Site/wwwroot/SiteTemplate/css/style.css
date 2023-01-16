@@ -8,14 +8,17 @@
 }
 
 * {
-    margin: 0;
+    
+
+
+ 
     padding: 0;
     box-sizing: border-box;
     font-family: 'FF';
     font-weight: lighter !important;
 }
 
-.sidebar1 {
+.sidebar {
 }
 
 :root {
@@ -33,14 +36,14 @@
 
 .ToDo {
     margin-right: 100px;
-    color: (--text-color);
+
 }
 
 body {
-    @include 'Style.css';
-    min-height: 100vh;
     background-color: var(--body-color);
     transition: var(--tran-05);
+    overflow-y:hidden;
+
 }
 
 ::selection {

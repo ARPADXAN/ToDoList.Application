@@ -6,6 +6,7 @@ using Domain.Entites.Cart;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,11 +26,12 @@ namespace Persistence.DataBaseContext
         public DbSet<Priority> Priorities { get; set; }
         public DbSet<PriorityInCarts> PriorityInCarts { get; set; }
 
-        
+       
 
         protected override void OnModelCreating(ModelBuilder Builder)
         {
             SeedData(Builder);
+            HasqueryFilter(Builder);
 
             foreach (var entityType in Builder.Model.GetEntityTypes())
             {
@@ -38,9 +40,15 @@ namespace Persistence.DataBaseContext
                     Builder.Entity(entityType.Name).Property<DateTime>("InsertTime");
                     Builder.Entity(entityType.Name).Property<DateTime?>("UpdateTime");
                     Builder.Entity(entityType.Name).Property<DateTime?>("RemoveTime");
-                    Builder.Entity(entityType.Name).Property<bool>("IsRemoved");
+                    Builder.Entity(entityType.Name).Property<bool>("IsRemoved").HasDefaultValue(false);
                 }
             }
+           
+        }
+        private  void HasqueryFilter(ModelBuilder builder)
+        {
+            builder.Entity<Cart>()
+                 .HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
         }
 
         #region Seed Data
@@ -67,27 +75,31 @@ namespace Persistence.DataBaseContext
             {
                 var entityType = item.Context.Model.FindEntityType(item.Entity.GetType());
 
-                var insertTime = entityType.FindProperty("InsertTime");
-                var updateTime = entityType.FindProperty("UpdateTime");
-                var isRemoved = entityType.FindProperty("IsRemoved");
-                var removedTime = entityType.FindProperty("RemoveTime");
-                if (item.State == EntityState.Added && insertTime != null)
+                var InsertTime = entityType.FindProperty("InsertTime");
+                var UpdateTime = entityType.FindProperty("UpdateTime");
+                var IsRemoved = entityType.FindProperty("IsRemoved");
+                var RemoveTime = entityType.FindProperty("RemoveTime");
+                if (item.State == EntityState.Added && InsertTime != null)
                 {
                     item.Property("InsertTime").CurrentValue = DateTime.Now;
                 }
-                if (item.State == EntityState.Modified && updateTime != null)
+                if (item.State == EntityState.Modified && UpdateTime != null)
                 {
                     item.Property("UpdateTime").CurrentValue = DateTime.Now;
                 }
-                if (item.State == EntityState.Deleted && isRemoved != null && removedTime != null)
+                if (item.State == EntityState.Deleted && IsRemoved != null && RemoveTime != null)
                 {
                     item.Property("IsRemoved").CurrentValue = true;
                     item.Property("RemoveTime").CurrentValue = DateTime.Now;
+                    item.State = EntityState.Modified;
+
                 }
 
             }
             return base.SaveChanges();
         }
+
+        
 
         #endregion
     }

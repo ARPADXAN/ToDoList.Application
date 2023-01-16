@@ -35,6 +35,7 @@ namespace Infrastracture.IdentityConfig
                 Options.User.RequireUniqueEmail = true;
                 Options.Lockout.MaxFailedAccessAttempts = 5;
                 Options.Lockout.DefaultLockoutTimeSpan=TimeSpan.FromDays(60);
+            
             });
             return services;
         }

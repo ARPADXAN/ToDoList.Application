@@ -42,5 +42,7 @@ public class RegisterViewModels
     [Compare("Password",ErrorMessage ="تکرار کلمه عبور صحیح نیست")]
     public string ConfirmPassword { get; set; }
 
+    public bool IsPerssitence { get; set; }
+
 
 }

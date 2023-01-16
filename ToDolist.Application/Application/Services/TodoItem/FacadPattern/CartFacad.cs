@@ -1,6 +1,9 @@
 ﻿using Application.Interfaces.Context;
 using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
+using Application.Services.TodoItem.Commands.ChangeStatusToDoItem;
+using Application.Services.TodoItem.Commands.EditTodoItem;
+using Application.Services.TodoItem.Commands.RemoveToDoItem;
 using Application.Services.TodoItem.Queries.GetPriority;
 using Application.Services.TodoItem.Queries.GetStatus;
 using Application.Services.TodoItem.Queries.GetTodo;
@@ -31,7 +34,6 @@ namespace Application.Services.TodoItem.FacadPattern
         }
         #endregion
 
-
         #region GetPriority
         private IGetPriorityService getPriorityService;
         public IGetPriorityService GetPriorityService
@@ -42,7 +44,6 @@ namespace Application.Services.TodoItem.FacadPattern
             }
         }
         #endregion
-
 
         #region Get status
         private IGetStatusService getStatusService;
@@ -63,6 +64,45 @@ namespace Application.Services.TodoItem.FacadPattern
             get
             {
                 return getToDoService = getToDoService ?? new GetToDoService(DB);
+            }
+        }
+
+
+
+        #endregion
+
+        #region Change satatus Todo
+        private ChangeStatusToDoService changeStatus;
+        public ChangeStatusToDoService ChangeStatusToDoService
+        {
+            get
+            {
+                return changeStatus = changeStatus ?? new ChangeStatusToDoService(DB);
+            }
+        }
+
+        #endregion
+
+        #region Edit ToDo
+
+        private EditToDoItemService editToDoItem;
+        public EditToDoItemService EditToDoItemService
+        {
+            get
+            {
+                return editToDoItem = editToDoItem ?? new EditToDoItemService(DB);
+            }
+        }
+
+        #endregion
+
+        #region Delete Todo
+        private RemoveToDoItemService removeToDo; 
+        public RemoveToDoItemService RemoveToDoItemService
+        {
+            get
+            {
+                return removeToDo = removeToDo ?? new RemoveToDoItemService(DB);
             }
         }
 

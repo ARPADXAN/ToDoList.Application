@@ -6,6 +6,7 @@
 }
 
 <!DOCTYPE html>
+
 <html lang="fa">
 
 <head>
@@ -13,66 +14,349 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="~/sitetemplate/css/styletable.css" rel="stylesheet" />
+    
     <title>Table</title>
 </head>
 
 
 <body>
-    
+    <div id="wrapper">
+                <div class="container">
+                       <div class="row" >
+                            <div class="col"  >
+                                <div class="azab"> 
+                                  <button   class="btn btn-info btn-lg" id="addtodo" data-target-modal="#todo_form" > 
+                                        <i  class="fas fa-plus-square me-2"></i>
+                                        اضافه کن  
+                                   </button>
+                                </div>
 
-  <form action="?" style="margin-top: -500px;margin-right:0px" class="add_Task  w-150 row align-item-center">
-                           
-           <div class="col-md-2">
-              <button asp-controller="ToDo" asp-action="AddTodo"  class="btn btn-info text-light"  style="text-align: center;  padding: 8px 15px;!important height: fit-content;" >
-                 <i class="fas fa-plus-square me-2"></i>
-                 اضافه کن
-              </button>
-           </div>  
-    </form>
-    <hr>
-     <h1 style="margin-top:-800px;">لیست وظایف</h1>
 
-    <table>
-        <tr id="header">
-            <th>#</th>
-            <th>عنوان</th>
-            <th>توضیحات</th>
-            <th>الویت</th>
-            <th>وضعیت</th>
-            <th>تاریخ ثبت</th>
-            <th>تاریخ تکمیل</th>
-            <th> عملیات</th>
-        </tr>
-        @foreach (var item in Model.GetToDoDtos)
-        {
+
+                            </div> 
+                            <div class="col">
+                                      <!-- The Modal -->
+                                           <div id="myModal" class="modal">
+
+                                             <!-- Modal content -->
+                                             <div class="modal-content">
+                                               <span class="close">&times;</span>
+                                               <p>Some text in the Modal..</p>
+                                             </div>
+
+                                           </div>
+
+
+                            </div>                             
+                       </div>
+                       <div class="row" >
+                            <div class="col">
+                                     <div id="overflow" style="overflow:scroll;margin-bottom:4px;">
+
+                                          <table class="mt-4" style="overflow:scroll">
+                                                    <tr id="header">
+                                                        <th>#</th>
+                                                        <th>عنوان</th>
+                                                        <th>توضیحات</th>
+                                                        <th>الویت</th>
+                                                        <th>وضعیت</th>
+                                                        <th>تاریخ ثبت</th>
+                                                        <th>تاریخ تکمیل</th>
+                                                        <th> عملیات</th>
+                                                    </tr>
+                            @foreach (var item in Model.GetToDoDtos)
+                            {
+
+                                                             <tr>
+                                                                 <td>@item.Id </td>
+                                                                 <td>@item.Title </td>
+                                                                 <td>@item.Description </td>
+                                                                 <td>@item.Priority </td>
+                                                                 <td>@item.Status </td>
+                                                                 <td> </td>
+                                                                 <td>
+
+                                                                 </td>
+                                                                 <td style="width:300px">
+                                                                           <button class="btn btn-info text-light" id="Edit" onclick="EdittoDo('@item.Id');return false">
+                                                                        <i class="fas fa-edit"></i>
+                                                                   </button>  
+                                                                       <button class="btn btn-danger" id="Delete"  onclick="RemoveCart('@item.Id'); return false" >
+                                                                       <i class="fas fa-trash-alt"></i>
+                                                                   </button> 
+                                                                 </td>
+
+                                                             </tr>
+
+
+
+                            }
+
+
+                                          </table>
+                                     </div>
+                            </div>
+
+                       </div>
+                </div>
+    </div>
+         <form id="form">
+              <div class="modal" id="todo_form" dir="rtl" >
+               <div class="header">
+                     <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
+                       <span id="closemodal" typeof="button"   class="close-modal">&times;</span>
+                     </div>           
+               <div class="body" >
             
-                <tr>
-                    <td>@item.Id </td>
-                    <td>@item.Title </td>
-                    <td>@item.Description </td>
-                    <td>@item.Priority </td>
-                    <td>@item.Status </td>
-                    <td> </td>
-                    <td>
-              
-                    </td>
-                    <td style="width:300px">
-                      <button class="btn btn-info text-light" id="Edit">
-                           <i class="fas fa-edit"></i>
-                      </button>  
-                      <button class="btn btn-danger" id="Delete" >
-                          <i class="fas fa-trash-alt"></i>
-                      </button> 
-                    </td>
-              
-                </tr>
+                     <div class="form-control"> 
+                        <input type="text" name="Title" class="form-control Inputs" id="todo_input"  placeholder="عنوان"  />
+                     </div>
+                     <div class="form-control">
+                        <textarea class="form-control Inputs" name="Description" id="todo_input_1" placeholder="توضیحات" ></textarea>
+                     </div>                
+                        <label  class="modal-body" name="priorityId"   >وضعیت</label>
+                        <select id="myselect"  name="priorityId"   asp-items="@ViewBag.priority">                  
+                        </select>
+                        <label for="" >میخوای برات یاد آوری کنم؟</label>
+                        <input  type="checkbox" value="true" name="HaveNofication"  id="myCheck" onclick="myFunction()">                  
+                     <br>
+                     <div class="form-control" >
+                        <input class="form-control name="NoficationDate"  Inputs" id="nofication_time_1" data-jdp placeholder="تاریخ"  data-jdp-min-date="today" style="display:none ;" readonly>                  
+                     </div >
+                     <div class="form-control">
+                        <input class="form-control Inputs"  name="NoficationTime" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />                  
+                     </div>
+                     <div style="text-align: center;">
+                        <input  type="button" onclick="SubmitEvent()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
+                     </div>
+
+               </div>
+
+            </div>
+
+         </form>
+         <form id="form">
+              <div class="modal" id="todo_form_Edit" dir="rtl" >
+               <div class="header">
+                     <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
+                       <span id="closemodal" typeof="button"   class="close-modal">&times;</span>
+                     </div>           
+               <div class="body" >
             
-         
+                     <div class="form-control"> 
+                        <input type="text" name="Title" class="form-control Inputs" id="todo_input"  placeholder="عنوان"  />
+                     </div>
+                     <div class="form-control">
+                        <textarea class="form-control Inputs" name="Description" id="todo_input_1" placeholder="توضیحات" ></textarea>
+                     </div>                
+                        <label  class="modal-body" name="priorityId"   >وضعیت</label>
+                        <select id="myselect"  name="priorityId"   asp-items="@ViewBag.priority">                  
+                        </select>
+                        <label for="" >میخوای برات یاد آوری کنم؟</label>
+                        <input  type="checkbox" value="true" name="HaveNofication"  id="myCheck" onclick="myFunction()">                  
+                     <br>
+                     <div class="form-control" >
+                        <input class="form-control name="NoficationDate"  Inputs" id="nofication_time_1" data-jdp placeholder="تاریخ"  data-jdp-min-date="today" style="display:none ;" readonly>                  
+                     </div >
+                     <div class="form-control">
+                        <input class="form-control Inputs"  name="NoficationTime" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />                  
+                     </div>
+                     <div style="text-align: center;">
+                        <input  type="button" onclick="SubmitEvent()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
+                     </div>
 
-        }
+               </div>
+
+            </div>
+
+         </form>
 
 
-    </table>
 
+
+
+ 
+
+
+    <script src="~/js/site.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    const btns = document.querySelectorAll("[data-target-modal]");
+    const close_modals = document.querySelectorAll(".close-modal");
+    const overlay = document.getElementById("overlay");
+    btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        document.querySelector(btn.dataset.targetModal).classList.add("active");
+        overlay.classList.add("active");
+    });
+});
+
+    close_modals.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const modal = btn.closest(".modal");
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+
+    window.onclick = (event) => {
+    if (event.target == overlay) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => modal.classList.remove("active"));
+        overlay.classList.remove("active");
+    }
+};
+</script>
+<script>
+    const btns = function EdittoDo(Edit);
+    const close_modals = document.querySelectorAll(".close-modal");
+    const overlay = document.getElementById("overlay");
+    btns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        document.querySelector(btn.dataset.targetModal).classList.add("active");
+        overlay.classList.add("active");
+    });
+});
+
+    close_modals.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        const modal = btn.closest(".modal");
+        modal.classList.remove("active");
+        overlay.classList.remove("active");
+    });
+});
+
+    window.onclick = (event) => {
+    if (event.target == overlay) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach((modal) => modal.classList.remove("active"));
+        overlay.classList.remove("active");
+    }
+};
+</script>
+<script>
+     $(.close).removeAttr("style");
+</script>
+ <script>
+                       //Add ToDo
+
+                    function SubmitEvent() {
+
+
+                swal.fire({
+                    title: 'ثبت وظیفه',
+                    text: "اگه انجامش میدی برات اضافه کنم؟",
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'اره بابا انجامش میدم',
+                    cancelButtonText: 'نه نمیتونم'
+                }).then((result) => {
+                    if (result.value) {
+                     var data1 = new FormData();
+                     var data2 = $("form").serialize();
+                     data1.append("priorityId", $("#myselect").val());
+
+                        $.ajax({
+                            contentType: 'application/x-www-form-urlencoded',
+                            dataType: 'json',
+                            type: "POST",
+                            url: 'Home/AddToDo/',
+
+                            data: data1,
+                            data: data2,
+                            success: function (data) {
+                                if (data.isSuccess == true) {
+                                    swal.fire(
+                                        'موفق!',
+                                        data.message,
+                                        'success'
+                                    ).then(document.getElementById("form").reset())
+                                    .then(document.getElementById("closemodal").click())
+
+                                
+
+                                }
+                                else {
+
+                                    swal.fire(
+                                        'هشدار!',
+                                        data.message,
+                                        'warning'
+                                    ) ;
+
+                                }
+                            },
+                            error: function (request, status, error) {
+                                alert(request.responseText);
+                            }
+
+                        });
+
+                    }
+                })
+            }
+
+
+
+        </script>
+
+        <script>
+
+                  function RemoveCart(CartId) {
+                        swal.fire({
+                            title: 'حذف کارت ;',
+                            text: "میخوای پاکش کنم؟",
+                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#d33',
+                            cancelButtonColor: '#7cacbe',
+                            confirmButtonText: 'آره ،   حذفش کن بره',
+                            cancelButtonText: 'فعلا نه!'
+                        }).then((result) => {
+                            if (result.value) {
+                                var postData = {
+                                        'CartId': CartId,
+                                };
+
+                                $.ajax({
+                                    contentType: 'application/x-www-form-urlencoded',
+                                    dataType: 'json',
+                                    type: "POST",
+                                            url: "RemoveCart",
+                                    data: postData,
+                                    success: function (data) {
+                                        if (data.isSuccess == true) {
+                                            swal.fire(
+                                                'موفق!',
+                                                data.message,
+                                                'success'
+                                            ).then(function (isConfirm) {
+                                                $("#wrapper").load(location.href + " #wrapper")
+                                              
+                                            });
+                                        }
+                                        else {
+
+                                            swal.fire(
+                                                'هشدار!',
+                                                data.message,
+                                                'warning'
+                                            );
+
+                                        }
+                                    },
+                                    error: function (request, status, error) {
+                                        alert(request.responseText);
+                                    }
+
+                                });
+
+                            }
+                        })
+                    }
+        </script>
 </body>
+
 </html>

@@ -1,11 +1,16 @@
 ﻿using Application.Interfaces.FacadPatterns;
 using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Queries.GetTodo;
+using Azure.Core;
+using Domain.Entites.Cart;
 using EndPoint.Site.Models;
 using EndPoint.Site.Models.ViewModels.HomePageViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Persistence.DataBaseContext;
 using System.Diagnostics;
+using static Application.Services.TodoItem.Commands.ChangeStatusToDoItem.ChangeStatusToDoService;
 
 namespace EndPoint.Site.Controllers
 {
@@ -18,20 +23,78 @@ namespace EndPoint.Site.Controllers
             CF = cF;
             _logger = logger;
         }
+
+
+        #region get Todo
+
         public IActionResult Index()
         {
+
             return View();
         }
         [HttpGet]
         public IActionResult index(RequestuserDto requestuser)
-        {          
+        {
             ViewBag.Priority = new SelectList(CF.GetPriorityService.Execute().Data, "Id", "Name");
 
-             var gettodo = CF.GetToDoService.Excute(requestuser).Data;
+
+
+            var gettodo = CF.GetToDoService.Excute(requestuser).Data;
 
 
             return View(gettodo);
         }
+        #endregion
+
+        [HttpPost("change-state-item/{elementId:int}/{stateId}"), Route("change-state-item/{elementId:int}/{stateId}")]
+        public bool ChangeStateItem([FromRoute] long elementId, [FromRoute] string stateId)
+        {
+            if (stateId == "no_status")
+            {
+                var result = CF.ChangeStatusToDoService.Execute(new RequestForChangeStatusto
+                {
+                    CartId = elementId,
+                    StatusId = 1,
+                    IsCompelte = false,
+                    DueCompelete = null,
+                });
+            }
+            if (stateId == "status_notstart")
+            {
+                var result = CF.ChangeStatusToDoService.Execute(new RequestForChangeStatusto
+                {
+                    CartId = elementId,
+                    StatusId = 2,
+                    IsCompelte = false,
+                    DueCompelete = null,
+                });
+            }
+            if (stateId == "status_inprogress")
+            {
+                var result = CF.ChangeStatusToDoService.Execute(new RequestForChangeStatusto
+                {
+                    CartId = elementId,
+                    StatusId = 3,
+                    IsCompelte = false,
+                    DueCompelete = null
+                });
+            }
+            if (stateId == "status_compelete")
+            {
+                var result = CF.ChangeStatusToDoService.Execute(new RequestForChangeStatusto
+                {
+                    CartId = elementId,
+                    StatusId = 4,
+                    IsCompelte = true,
+                    DueCompelete = DateTime.Now,
+                });
+            }
+
+
+
+            return true;
+        }
+
         #region Add cart 
         [HttpGet]
         public IActionResult AddToDo()
@@ -87,7 +150,7 @@ namespace EndPoint.Site.Controllers
                 {
                     new statusInCarts
                     {
-                        Id=3,
+                        Id=1,
                     }
                 },
                     HaveNofication = false,
@@ -100,6 +163,28 @@ namespace EndPoint.Site.Controllers
         }
         #endregion
 
+
+
+        #region Change Status
+        public IActionResult ChangeStatus(RequestForChangeStatusto request)
+        {
+            var result = CF.ChangeStatusToDoService.Execute(request);
+            return Json(request);
+        }
+        #endregion
+
+
+        #region Delete Todo
+        [Route("RemoveCart")]
+        public IActionResult RemoveCart(long CartId)
+        {
+             var result= CF.RemoveToDoItemService.Execute(CartId);
+            return Json(result);
+        }
+     
+        #endregion
+
+        #region Other
         public IActionResult Privacy()
         {
             return View();
@@ -111,11 +196,8 @@ namespace EndPoint.Site.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        #region Get Todo list
-        public IActionResult GetTodo()
-        {
-            return View();
-        }
         #endregion
+
+
     }
 }

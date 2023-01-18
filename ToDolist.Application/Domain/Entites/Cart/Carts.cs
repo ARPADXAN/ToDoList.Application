@@ -12,6 +12,8 @@ namespace Domain.Entites.Cart
     public class Cart
     {
         public long Id { get; set; }
+        public virtual Users? user { get; set; }
+        public long UseId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public bool HaveNofication { get; set; }

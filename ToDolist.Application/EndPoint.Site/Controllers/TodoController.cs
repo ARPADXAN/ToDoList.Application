@@ -2,6 +2,7 @@
 using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Commands.EditTodoItem;
 using Application.Services.TodoItem.Queries.GetTodo;
+using Azure.Core;
 using Domain.Entites.Cart;
 using EndPoint.Site.Models;
 using EndPoint.Site.Models.RegisterViewModels;
@@ -115,7 +116,15 @@ namespace EndPoint.Site.Controllers
         }
         #endregion
 
-
+        #region LoadModelEdit
+        [HttpGet("load-Edit-modal-body")]
+        public IActionResult loadModelForEditToDo(RequestUserForEditToDoService request)
+        {
+            var result = CF.EditToDoItemService.Execute(request);
+            return PartialView("EditToDoPartial",request);
+           
+        }
+        #endregion
 
 
 

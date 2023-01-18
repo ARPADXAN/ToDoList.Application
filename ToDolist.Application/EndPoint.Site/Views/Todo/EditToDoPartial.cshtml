@@ -1,0 +1,133 @@
+﻿@using Application.Services.TodoItem.Commands.EditTodoItem
+
+@model RequestUserForEditToDoService
+@{
+    Layout = null;
+}
+
+
+           <title>اضافه کردن وظیفه</title>
+           <link rel="stylesheet" href="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
+           <link href="~/sweetalert/sweetalert2.css" rel="stylesheet" />
+           <link href="~/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+           <link href="~/sitetemplate/css/stylemodaledit.css" rel="stylesheet" />
+
+
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ویرایش</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Stylemodal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="ModalScript.js"></script>
+</head>
+
+<body class="blurBg-false" style="background-color:#EBEBEB">
+
+
+
+         <form  dir="rtl" class="formoid-solid-orange"  style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post">
+             <div class="title" >
+                 <h2>ویرایش</h2>
+             </div>
+             <div class="element-input">
+               <label asp-for="Title" class="title"></label>
+                <div class="item-cont">
+                  <input class="large" type="text" asp-for="Title" name="input" placeholder="همکاری با سامان"/>
+                  <span asp-validation-for="Title"></span>
+               </div>
+             </div>
+             <div class="element-textarea">
+                 <label asp-for="Description" class="title"></label>
+                <div class="item-cont">
+                   <textarea asp-for="Description" class="medium" name="textarea" cols="20" rows="5" placeholder="توضیح این که ...">
+                    <span asp-validation-for="Description"></span>
+                   </textarea>         
+                </div>
+              </div>  
+             <div class="submit">
+                <input type="submit" onclick="SubmitEvent()" value="ویرایش"/>
+             </div>
+         </form>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+             <script src="~/sitetemplate/js/modaledit.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+             <script src="~/sweetalert/sweetalert2.all.js"></script>
+             <script src="~/sweetalert/sweetalert2.all.min.js"></script>
+             <script src="~/sweetalert/sweetalert2.js"></script>
+
+
+        <script>
+
+                    function SubmitEvent() {
+                swal.fire({
+                    title: 'ثبت وظیفه',
+                    text: "اگه انجامش میدی برات اضافه کنم؟",
+                    icon: 'info',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'اره بابا انجامش میدم',
+                    cancelButtonText: 'نه نمیتونم'
+                }).then((result) => {
+                    if (result.value) {
+                     var data1 = new FormData();
+                     var data2 = $("#form").serialize();
+                     data1.append("priorityId", $("#priorityId").val());
+
+                        $.ajax({
+                            contentType: 'application/x-www-form-urlencoded',
+                            dataType: 'json',
+                            type: "POST",
+                            url: "AddTodo",
+                            data: data1,
+                            data: data2,
+                            success: function (data) {
+                                if (data.isSuccess == true) {
+                                    swal.fire(
+                                        'موفق!',
+                                        data.message,
+                                        'success'
+                                    ).then(function (isConfirm) {
+                                        location.reload();
+                                    });
+
+
+                                }
+                                else {
+
+                                    swal.fire(
+                                        'هشدار!',
+                                        data.message,
+                                        'warning'
+                                    ) ;
+
+                                }
+                            },
+                            error: function (request, status, error) {
+                                alert(request.responseText);
+                            }
+
+                        });
+
+                    }
+                })
+            }
+
+
+
+        </script>

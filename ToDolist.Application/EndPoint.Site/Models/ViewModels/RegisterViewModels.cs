@@ -43,6 +43,8 @@ public class RegisterViewModels
     public string ConfirmPassword { get; set; }
 
     public bool IsPerssitence { get; set; }
+    public string? ReturnUrl { get; set; }
+    public string? Meessage { get; set; }
 
 
 }

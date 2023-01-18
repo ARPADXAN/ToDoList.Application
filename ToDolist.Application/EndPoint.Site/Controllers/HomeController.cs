@@ -14,6 +14,7 @@ using static Application.Services.TodoItem.Commands.ChangeStatusToDoItem.ChangeS
 
 namespace EndPoint.Site.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

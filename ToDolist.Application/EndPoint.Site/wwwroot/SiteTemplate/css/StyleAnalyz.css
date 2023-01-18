@@ -1,0 +1,19 @@
+﻿@font-face {
+    font-family: 'FF';
+    src: url(~/SiteTemplate/font/IranSansDN.ttf);
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'FF';
+    font-weight: lighter !important;
+}
+body {
+    margin-right: 400px;
+    justify-content: center;
+}
+
+hr {
+    margin-right: -300px !important;
+}

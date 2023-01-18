@@ -5,82 +5,81 @@
 
 
 
-<!DOCTYPE html>
- <html>
-      <head>
-              <meta charset="utf-8">
-           <meta name="viewport" content="width=device-width, initial-scale=1">
-           <title>اضافه کردن وظیفه</title>
-           <link href="~/sitetemplate/css/stylemodal.css" rel="stylesheet" />
+           <title>ویرایش</title>
            <link rel="stylesheet" href="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.css">
            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
-           <script src="~/sweetalert/sweetalert2.all.js"></script>
-           <script src="~/sweetalert/sweetalert2.all.min.js"></script>
-           <script src="~/sweetalert/sweetalert2.js"></script>
            <link href="~/sweetalert/sweetalert2.css" rel="stylesheet" />
            <link href="~/sweetalert/sweetalert2.min.css" rel="stylesheet" />
+           <link href="~/sitetemplate/css/stylemodaledit.css" rel="stylesheet" />
 
-     </head>
-     <body>
 
-    
-             <div class="row  ">
-     <div class="col-lg-12  d-flex justify-content-center " >
-         <form  dir="rtl" id="form">
-             <div class="row">
-                 <div class="col-lg-6">   
-                     <div class="fom-group">
-                        <input placeholder="همکاری با سامان" name="Title" id="txtTitle" class="form-control"  autofocus/>
-                     </div>
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>ویرایش</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Stylemodal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="ModalScript.js"></script>
+</head>
+
+<body class="blurBg-false" style="background-color:#EBEBEB">
+
+
+
+         <form  dir="rtl" class="formoid-solid-orange" style="background-color:#FFFFFF;font-size:14px;font-family:'Roboto',Arial,Helvetica,sans-serif;color:#34495E;max-width:480px;min-width:150px" method="post">
+             <div class="title" >
+                 <h2>ویرایش</h2>
+             </div>
+             <div class="element-input">
+               <label class="title"></label>
+                <div class="item-cont">
+                  <input class="large" type="text" name="input" placeholder="همکاری با سامان"/>
+               </div>
+             </div>
+             <div class="element-textarea"><label class="title"></label>
+                <div class="item-cont">
+                   <textarea class="medium" style="color:black" name="textarea" cols="20" rows="5" placeholder="توضیح این که ...">
+                   </textarea>         
+                </div>
+              </div>
+             <div class="element-select">
+                <label class="title"></label>
+               <div class="item-cont">
+                 <div class="large">
+                   <span>
+                     <select name="select" >
+                     </select>
+
+                   </span>
                  </div>
-                 <div class="col-lg-6">
-                    <div class="fom-group">
-                      <select class="form-control" name="priorityId"  id="priorityId"   asp-items="@ViewBag.priority">
-                          <option value="0" disabled selected>نوع الویت مورد نظرت انتخاب کن</option>
-                      </select>
-                    </div>
-                 </div>
+               </div>
              </div>
-             <div class="form-group">
-                   <textarea  class="form-control Inputs"  placeholder="توضیحات" name="Description" id="txtDescription" ></textarea>
-             </div>
-             <div class="form-group">
-                 <label>میخوای برات یادآوری کنم؟
-                     <input type="checkbox" name="HaveNofication" value="true"  id="myCheck"  data-step='1' onclick="myFunction()"/>
-                 </label>
-              
-             </div>
-             <div class="row">
-                  <div class="col-md-6" id="function1_1">   
-                    <div class="fom-group">
-                    <input   id="txtNoficationDate" name="NoficationDate"  data-jdp placeholder="امروز" data-jdp-min-date="today" data-step='1'  class="form-control"   style="display:none" readonly/>
-                  </div>
-             </div>
-                <div class="col-md-6" id="function1_2">
-                   <div class="fom-group">
-                       <input  id="txtNoficationTime" name="NoficationTime"   data-jdp placeholder="زمان" data-jdp-only-time data-step='1' class="form-control"   style="display:none" readonly/>
-                   </div>
-             </div>
-             </div>
-             <div >
-                   <input  onclick="SubmitEvent()" value="اضافه کن" onc class="btn btn-primary" />
-             </div>
-             <div >
-                 <input type="submit" style="" value="لازم نیست" id="cancel" class="btn btn-warning" />
+             <div class="submit">
+                <input type="submit"  value="ویرایش"/>
              </div>
          </form>
 
-     </div>
-     </div>
-
-         
 
 
 
+</body>
+</html>
+
+
+
+
+
+
+             <script src="~/sitetemplate/js/modaledit.js"></script>
              <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
              <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
              <script type="text/javascript" src="https://unpkg.com/@@majidh1/jalalidatepicker/dist/jalalidatepicker.min.js"></script>
+             <script src="~/sweetalert/sweetalert2.all.js"></script>
+             <script src="~/sweetalert/sweetalert2.all.min.js"></script>
+             <script src="~/sweetalert/sweetalert2.js"></script>
 <script>
           jalaliDatepicker.startWatch({
             minDate: "attr",
@@ -176,7 +175,3 @@ function myFunction() {
 
 
         </script>
-             
-
-     </body>
- </html>

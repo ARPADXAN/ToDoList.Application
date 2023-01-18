@@ -4,6 +4,7 @@ using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Commands.ChangeStatusToDoItem;
 using Application.Services.TodoItem.Commands.EditTodoItem;
 using Application.Services.TodoItem.Commands.RemoveToDoItem;
+using Application.Services.TodoItem.Queries.GetCountForAnalyz;
 using Application.Services.TodoItem.Queries.GetPriority;
 using Application.Services.TodoItem.Queries.GetStatus;
 using Application.Services.TodoItem.Queries.GetTodo;
@@ -103,6 +104,18 @@ namespace Application.Services.TodoItem.FacadPattern
             get
             {
                 return removeToDo = removeToDo ?? new RemoveToDoItemService(DB);
+            }
+        }
+
+
+        #endregion
+        #region GetTodolist
+        private IGetCountAnalyzForService CountAnalyz;
+        public IGetCountAnalyzForService GetCountAnalyzForService
+        {
+            get
+            {
+                return CountAnalyz = CountAnalyz ?? new GetCountAnalyzForService(DB);
             }
         }
 

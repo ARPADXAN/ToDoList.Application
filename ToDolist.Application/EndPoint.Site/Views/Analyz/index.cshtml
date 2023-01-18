@@ -1,0 +1,93 @@
+﻿@using Application.Services.TodoItem.Queries.GetCountForAnalyz
+@model GetCountForAnalyzDto
+@{
+    ViewData["Title"] = "آنالیز";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html >
+<html dir="rtl" lang="fa">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<link href="~/sitetemplate/css/styleanalyz.css" rel="stylesheet" />
+<style>
+    @@font-face {
+    font-family: 'FF';
+    src: url();
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'FF';
+    font-weight: lighter !important;
+}
+body {
+    margin-right: 400px;
+    justify-content: center;
+}
+
+hr {
+    margin-right: -300px !important;
+}
+</style>
+<body>
+
+<canvas id="myChart1" style="width:100%;max-width:800px;margin-top:-383px;margin-left:-386px"></canvas>
+<hr>
+<canvas id="myChart2" style="width:100%;max-width:600px;margin-left:471px ;margin-top:500px"></canvas>
+
+<script>
+var xValues = ["اضطراری",  "عادی", "فوری "];
+
+          var yValues = [@Model.Critical, @Model.General, @Model.Urgent;
+  
+      
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+
+  "#1e7145"
+];
+
+new Chart("myChart1", {
+  type: "pie",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "آمار الویت وظایف "
+    }
+  }
+});
+var xValues = ["تکمیل شده", "در حال تکمیل", "شروع نکرده", "تعلیق"];
+var yValues = [@Model.Complete, @Model.Inprogress, @Model.NotStart, @Model.Suspend];
+var barColors = ["green", "blue","orange","red"];
+
+new Chart("myChart2", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "وضغیت"
+    }
+  }
+});
+</script>
+
+</body>
+</html>

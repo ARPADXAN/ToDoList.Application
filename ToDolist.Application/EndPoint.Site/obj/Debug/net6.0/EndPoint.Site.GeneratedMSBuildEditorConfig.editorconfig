@@ -23,6 +23,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Analyz/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl6XGluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Analyz/jqueryindex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQW5hbHl6XGpxdWVyeWluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -51,8 +59,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xBZGRUb0RvUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/Components/AddTodo/AddToDo.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xDb21wb25lbnRzXEFkZFRvZG9cQWRkVG9Eby5jc2h0bWw=
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/Components/EditToDo/EditToDo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xDb21wb25lbnRzXEVkaXRUb0RvXEVkaXRUb0RvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/EditToDoPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xFZGl0VG9Eb1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [L:/C\#/ASP.NET/TodoList.Application/Code/ToDolist.Application/EndPoint.Site/Views/Todo/Index.cshtml]

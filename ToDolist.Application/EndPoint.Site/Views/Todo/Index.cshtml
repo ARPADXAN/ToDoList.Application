@@ -78,7 +78,7 @@
 
                                                                  </td>
                                                                  <td style="width:300px">
-                                                                           <button class="btn btn-info text-light" id="Edit" onclick="EdittoDo('@item.Id');return false">
+                                                                                   <button class="btn btn-info text-light" data-target-modal="#todo_form_Edit" id="Edit" @*onclick="laodmodalforedit()"*@>
                                                                         <i class="fas fa-edit"></i>
                                                                    </button>  
                                                                        <button class="btn btn-danger" id="Delete"  onclick="RemoveCart('@item.Id'); return false" >
@@ -143,27 +143,7 @@
                      </div>           
                <div class="body" >
             
-                     <div class="form-control"> 
-                        <input type="text" name="Title" class="form-control Inputs" id="todo_input"  placeholder="عنوان"  />
-                     </div>
-                     <div class="form-control">
-                        <textarea class="form-control Inputs" name="Description" id="todo_input_1" placeholder="توضیحات" ></textarea>
-                     </div>                
-                        <label  class="modal-body" name="priorityId"   >وضعیت</label>
-                        <select id="myselect"  name="priorityId"   asp-items="@ViewBag.priority">                  
-                        </select>
-                        <label for="" >میخوای برات یاد آوری کنم؟</label>
-                        <input  type="checkbox" value="true" name="HaveNofication"  id="myCheck" onclick="myFunction()">                  
-                     <br>
-                     <div class="form-control" >
-                        <input class="form-control name="NoficationDate"  Inputs" id="nofication_time_1" data-jdp placeholder="تاریخ"  data-jdp-min-date="today" style="display:none ;" readonly>                  
-                     </div >
-                     <div class="form-control">
-                        <input class="form-control Inputs"  name="NoficationTime" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />                  
-                     </div>
-                     <div style="text-align: center;">
-                        <input  type="button" onclick="SubmitEvent()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
-                     </div>
+                    
 
                </div>
 
@@ -208,7 +188,7 @@
 };
 </script>
 <script>
-    const btns = function EdittoDo(Edit);
+    const btns = document.querySelectorAll("[data-target-modal-edit]");
     const close_modals = document.querySelectorAll(".close-modal");
     const overlay = document.getElementById("overlay");
     btns.forEach((btn) => {

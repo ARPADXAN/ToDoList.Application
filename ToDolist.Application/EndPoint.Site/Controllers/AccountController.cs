@@ -27,9 +27,8 @@ namespace EndPoint.Site.Controllers
         {
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "خطایی رخ داد");
 
-                return View(request);
+                return Json("لطفا ورودی های خود را کنترل کنین");
             }
             Users user = new Users()
             {
@@ -60,6 +59,8 @@ namespace EndPoint.Site.Controllers
             foreach (var item in result.Errors)
             {
                 ModelState.AddModelError(item.Code, item.Description);
+                return Json(item.Description);
+
             }
             return Json(request);
         }
@@ -79,7 +80,7 @@ namespace EndPoint.Site.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return Json(model);
+                return Json("لطفا ورودی های خود را کنترل کنین");
             }
             var users = _userManager.FindByNameAsync(model.Mobile).Result;
             if (users == null)

@@ -34,9 +34,6 @@ namespace Application.Services.TodoItem.Commands.EditTodoItem
             }
             cart.Title = request.Title;
             cart.Description = request.Description;
-            cart.HaveNofication = request.HaveNofication;
-            cart.NoficationDate = request.NoficationDate;
-            cart.NoficationTime = request.NoficationTime;
             DB.SaveChanges();
             return new ResultDto
             {
@@ -56,11 +53,7 @@ namespace Application.Services.TodoItem.Commands.EditTodoItem
         [Display(Name = " توضیحات")]
         [MaxLength(1200, ErrorMessage = " مقدار {0} نمی تواند بیشتر از {1} باشد  ")]
         public string? Description { get; set; }
-        public bool HaveNofication { get; set; }
-        [Display(Name = " تاریخ اعلان")]
-        public string? NoficationDate { get; set; }
-        [Display(Name = " زمان اعلان")]
-        public string? NoficationTime { get; set; }
+
       
     }
 }

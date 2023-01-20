@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "O7Q9JQqGXXAuvPzwy0oZKjbTAU5tGAQTswSVaLOs6Kg9ojd8mMoPWee/ko9/kqfU88bqsQUSFTX2J83kFjxiWQ==",
+  "dgSpecHash": "omiOUAq7FVaqv9X/38k5cHucCoMZsKnrGl0Fbof9DLD6Qbm3vU0aciLs0LlvBg1f6NiuNWa4O8TdMVwG1Nw5Yg==",
   "success": true,
   "projectFilePath": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\Common\\Common.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.extensions.primitives\\2.2.0\\microsoft.extensions.primitives.2.2.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\system.memory\\4.5.1\\system.memory.4.5.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.1\\system.runtime.compilerservices.unsafe.4.5.1.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512"
+  ],
   "logs": []
 }

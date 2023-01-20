@@ -14,7 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="~/sitetemplate/css/styletable.css" rel="stylesheet" />
-    
+    <link href="~/waitme/waitme.min.css" rel="stylesheet" />
+    <link href="~/waitme/waitme.css" rel="stylesheet" />
+
     <title>Table</title>
 </head>
 
@@ -23,31 +25,26 @@
     <div id="wrapper">
                 <div class="container">
                        <div class="row" >
-                            <div class="col"  >
-                                <div class="azab"> 
-                                  <button   class="btn btn-info btn-lg" id="addtodo" data-target-modal="#todo_form" > 
-                                        <i  class="fas fa-plus-square me-2"></i>
-                                        اضافه کن  
-                                   </button>
-                                </div>
+                           <form method="get">
+                           <div id="parent">
+                                 <div class="col"  >                             
+                                      <button  type="button" class="btn btn-info btn-lg" id="addtodo" data-target-modal="#todo_form" > 
+                                            <i  class="fas fa-plus-square me-2"></i>
+                                            اضافه کن  
+                                       </button>                                                    
+                                 </div> 
 
-
-
-                            </div> 
-                            <div class="col">
-                                      <!-- The Modal -->
-                                           <div id="myModal" class="modal">
-
-                                             <!-- Modal content -->
-                                             <div class="modal-content">
-                                               <span class="close">&times;</span>
-                                               <p>Some text in the Modal..</p>
-                                             </div>
-
-                                           </div>
-
-
-                            </div>                             
+                                 <div class="col">
+                                        <input type="text" id="Searchkey" class="form-control" name="Searchkey">                                                                    
+                                 </div> 
+                                 <div class="col">
+                                      <button id="search" class="btn btn-success">جستجو
+                                           <i  class="fa fa-search"></i>
+                                      </button>
+                                     
+                                 </div>
+                           </div>
+                           </form>
                        </div>
                        <div class="row" >
                             <div class="col">
@@ -78,7 +75,7 @@
 
                                                                  </td>
                                                                  <td style="width:300px">
-                                                                                   <button class="btn btn-info text-light" data-target-modal="#todo_form_Edit" id="Edit" @*onclick="laodmodalforedit()"*@>
+                                                                                              <button   data-Id="@item.Description" class="btn btn-info text-light" data-target-modal="#todo_form_Edit" id="Edit" >
                                                                         <i class="fas fa-edit"></i>
                                                                    </button>  
                                                                        <button class="btn btn-danger" id="Delete"  onclick="RemoveCart('@item.Id'); return false" >
@@ -102,9 +99,9 @@
     </div>
          <form id="form">
               <div class="modal" id="todo_form" dir="rtl" >
-               <div class="header">
+               <div class="header" style="  background: #1abc9c;color: white;">
                      <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
-                       <span id="closemodal" typeof="button"   class="close-modal">&times;</span>
+                       <span id="closemodal" typeof="button"  style="color:#fff"  class="close-modal">&times;</span>
                      </div>           
                <div class="body" >
             
@@ -127,7 +124,7 @@
                         <input class="form-control Inputs"  name="NoficationTime" id="nofication_time_2" data-jdp placeholder="زمان" data-jdp-only-time style="display:none "   readonly />                  
                      </div>
                      <div style="text-align: center;">
-                        <input  type="button" onclick="SubmitEvent()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
+                        <input  type="button" onclick="SubmitEodo()" id="todo_submit" name="todo_submit" value="اضافه کن"  style=" width:80%;"/>
                      </div>
 
                </div>
@@ -137,14 +134,21 @@
          </form>
          <form id="form">
               <div class="modal" id="todo_form_Edit" dir="rtl" >
-               <div class="header">
-                     <div class="title">میخوای یه وظیفه اضافه کنی ؟</div>
-                       <span id="closemodal" typeof="button"   class="close-modal">&times;</span>
+               <div class="header" style="  background: #008CBA;color: white;">
+                     <div  class="title">میخوای ویرایش کنی؟</div>
+                       <span id="closemodal" typeof="button"  style="color: #fff;"  class="close-modal">&times;</span>
                      </div>           
                <div class="body" >
             
-                    
-
+                      <div class="form-control"> 
+                        <input type="text" name="Title" class="form-control Inputs" id="todo_input"  placeholder="عنوان"  />
+                     </div>
+                     <div class="form-control">
+                        <textarea class="form-control Inputs" name="Description" id="todo_input_1" placeholder="توضیحات" ></textarea>
+                     </div> 
+                      <div style="text-align: center;">
+                        <input  type="button" onclick="EditTodo()" id="todo_submit" name="todo_submit" value="ویرایش کن"  style="background-color: #008CBA; width:80%;"/>
+                     </div>
                </div>
 
             </div>
@@ -154,16 +158,19 @@
 
 
 
-
  
 
 
     <script src="~/js/site.js"></script>
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="~/waitme/waitme.js"></script>
+    <script src="~/waitme/waitme.min.js"></script>
+
+
 <script>
     const btns = document.querySelectorAll("[data-target-modal]");
     const close_modals = document.querySelectorAll(".close-modal");
-    const overlay = document.getElementById("overlay");
     btns.forEach((btn) => {
     btn.addEventListener("click", () => {
         document.querySelector(btn.dataset.targetModal).classList.add("active");
@@ -179,48 +186,72 @@
     });
 });
 
-    window.onclick = (event) => {
-    if (event.target == overlay) {
-        const modals = document.querySelectorAll(".modal");
-        modals.forEach((modal) => modal.classList.remove("active"));
-        overlay.classList.remove("active");
+
+</script>
+       <script>
+
+
+        //perisan Datepicker
+
+    jalaliDatepicker.startWatch(
+    {
+      minDate: "attr",
+      maxDate: "attr",
+      minTime: "attr",
+      maxTime: "attr",
+      persianDigits: true,
+      changeMonthRotateYear: true,
+      showTodayBtn: true,
+      showEmptyBtn: true,
+      topSpace: 10,
+      bottomSpace: 30,
+      dayRendering(opt,input){
+          return {
+              isHollyDay:opt.day==1
+          }
+      }
+    });
+
+    document.getElementById("aaa").addEventListener("jdp:change", function (e) { console.log(e) });
+    </script>
+    <script>
+function myFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("myCheck");
+    // Get the output text
+    var text1 = document.getElementById("nofication_time_1");
+    var text2 = document.getElementById("nofication_time_2");
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true) {
+        text1.style.display = "block";
+        text2.style.display = "block";
+    } else {
+        text1.style.display = "none";
+        text2.style.display = "none";
     }
 };
-</script>
-<script>
-    const btns = document.querySelectorAll("[data-target-modal-edit]");
-    const close_modals = document.querySelectorAll(".close-modal");
-    const overlay = document.getElementById("overlay");
-    btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        document.querySelector(btn.dataset.targetModal).classList.add("active");
-        overlay.classList.add("active");
-    });
-});
 
-    close_modals.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        const modal = btn.closest(".modal");
-        modal.classList.remove("active");
-        overlay.classList.remove("active");
-    });
-});
+</script>
 
-    window.onclick = (event) => {
-    if (event.target == overlay) {
-        const modals = document.querySelectorAll(".modal");
-        modals.forEach((modal) => modal.classList.remove("active"));
-        overlay.classList.remove("active");
-    }
-};
-</script>
-<script>
-     $(.close).removeAttr("style");
-</script>
  <script>
-                       //Add ToDo
+             function startloading(element = 'body') {
+    $(element).waitMe({
+        effect: 'stretch',
+        text: 'صبر کن!',
+        bg: 'rgba(255, 255, 255, 0.7)',
+        color: '#000' 
+        });
+}
+       function c(element = 'body') {
+    $(element).waitMe('hide');
 
-                    function SubmitEvent() {
+}
+
+
+                   
+
+                    function SubmitEodo() {
+
 
 
                 swal.fire({
@@ -237,7 +268,6 @@
                      var data1 = new FormData();
                      var data2 = $("form").serialize();
                      data1.append("priorityId", $("#myselect").val());
-
                         $.ajax({
                             contentType: 'application/x-www-form-urlencoded',
                             dataType: 'json',
@@ -247,14 +277,14 @@
                             data: data1,
                             data: data2,
                             success: function (data) {
+
                                 if (data.isSuccess == true) {
-                                    swal.fire(
+                                   swal.fire(
                                         'موفق!',
                                         data.message,
                                         'success'
                                     ).then(document.getElementById("form").reset())
                                     .then(document.getElementById("closemodal").click())
-
                                 
 
                                 }
@@ -299,7 +329,6 @@
                                 var postData = {
                                         'CartId': CartId,
                                 };
-
                                 $.ajax({
                                     contentType: 'application/x-www-form-urlencoded',
                                     dataType: 'json',
@@ -337,6 +366,101 @@
                         })
                     }
         </script>
+        <script>
+
+                function EditTodo() {
+
+                    var cartId = $("#Edit_CartId").val();
+                    var title = $("#Edit_Title").val();
+                    var description = $("#Edit_Description").val();
+
+                    var postData = {
+                        'CartId': cartId,
+                        'Title': title,
+                        'Description': description,
+                    };
+
+
+                    $.ajax({
+                        contentType: 'application/x-www-form-urlencoded',
+                        dataType: 'json',
+                        type: "POST",
+                        url: "EditTodo",
+                        data: postData,
+                        success: function (data) {
+                            if (data.isSuccess == true) {
+                                swal.fire(
+                                    'موفق!',
+                                    data.message,
+                                    'success'
+                                ).then(function (isConfirm) {
+                                    location.reload();
+                                });
+                            }
+                            else {
+                                swal.fire(
+                                    'هشدار!',
+                                    data.message,
+                                    'warning'
+                                );
+                            }
+                        },
+                        error: function (request, status, error) {
+                            alert(request.responseText);
+                        }
+                    });
+
+
+                }
+
+                        $('#EditTodomodel').modal('hide');
+
+                function SubmitEvent(){
+
+
+                        $('#EditTodomodel').modal('show');
+
+                }
+        </script>
 </body>
 
 </html>
+   @section Modals
+    {
+                <!-- Modal Edit Todo -->
+                <div class="modal fade" id="EditTodomodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">ویرایش کارت</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <input type="hidden" id="Edit_CartId" />
+                                        <label for="basicInput">عنوان</label>
+                                        <input type="text" class="form-control" id="Edit_Title">
+                                    </fieldset>
+                                </div>
+                            </div>                            
+                            <div class="modal-body">
+                                <div class="col-xl-12 col-lg-12 col-md-12 mb-1">
+                                    <fieldset class="form-group">
+                                        <input type="hidden" id="Edit_CartId" />
+                                        <label for="basicInput">توضیحات</label>
+                                        <input type="text" class="form-control" id="Edit_Description">
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a  class="btn btn-secondary" data-dismiss="modal">بستن</a>
+                                <a  class="btn btn-primary" onclick="EditTodo()">اعمال تغییرات</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+}

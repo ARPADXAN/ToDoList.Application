@@ -17,9 +17,8 @@ namespace Infrastracture.IdentityConfig
     {
         public static IServiceCollection AddidentityService(this IServiceCollection services,IConfiguration configuration)
         {
-            services.AddDbContext<IdentityDataBaseContext>(options => options
-.UseSqlServer(configuration.GetConnectionString("SecondConnection")));
-            services.AddIdentity<Users, IdentityRole>().AddEntityFrameworkStores<IdentityDataBaseContext>()
+
+            services.AddIdentity<Users, IdentityRole>().AddEntityFrameworkStores<DataBaseContextMain>()
                 .AddDefaultTokenProviders()
                 .AddRoles<IdentityRole>()
                 .AddErrorDescriber<CustomIdentityError>();

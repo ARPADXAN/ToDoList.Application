@@ -8,13 +8,9 @@
 <html dir="rtl">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="slide navbar style.css">
     <link href="~/sitetemplate/css/stylelogin.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="~/sweetalert/sweetalert2.all.js"></script>
-    <script src="~/sweetalert/sweetalert2.all.min.js"></script>
-    <script src="~/sweetalert/sweetalert2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="~/waitme/waitme.min.css" rel="stylesheet" />
     <link href="~/sweetalert/sweetalert2.css" rel="stylesheet" />
     <link href="~/sweetalert/sweetalert2.min.css" rel="stylesheet" />
 </head>
@@ -24,64 +20,64 @@
         <input type="checkbox" id="chk" aria-hidden="true">
 
         <div class="signup">
-            <form id="form"   >
-                <form id="form"  >
+         
+                <form id="signup"  >
                     <div class="form-group">
                             <label for="chk" aria-hidden="true">فرم ثبت نام</label>
                     </div>
-                    <div class="form-group">
-                            <input type="text" name="FirstName" id="FirstName" placeholder="نام"  style="font-family:'Vazirmatn', sans-serif ;">
+                    <div class="form-group" style="height">
+                            <input type="text" name="firstName" id="FirstName" placeholder="نام"  style="font-family:'Vazirmatn', sans-serif ;">
                             <span   class="field-validation-error" ></span>
                     </div>
                     <div class="form-group">
-                            <input type="text" name="LastName" id="LastName" placeholder="نام خانوادگی"  style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="text" name="lastName" id="LastName" placeholder="نام خانوادگی"  style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error"  ></span>
                     </div>
                     <div class="form-group">
-                            <input type="text" name="Mobile" id="Mobile"  placeholder="شماره موبایل" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="text" name="mobile" id="Mobile"  placeholder="شماره موبایل" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error" ></span>
                     </div>
                     <div class="form-group">
-                            <input type="text" name="Email" id="Email" placeholder="ایمیل" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="text" name="email" id="Email" placeholder="ایمیل" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error" ></span>
                     </div>
                     <div class="form-group">
-                            <input type="password" name="Password" id="Password"  placeholder="کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="password" name="password" id="Password"  placeholder="کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error" ></span>
                     </div>
                     <div class="form-group">
-                            <input type="password" name="ConfirmPassword" id="ConfirmPassword"  placeholder="تکرار کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="password" name="confirmPassword" id="ConfirmPassword"  placeholder="تکرار کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error"></span>
                     </div>
                     <div>
-                            <input type="button" onclick="Registeruser()"  a value="ثبت نام" id="submit" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="submit"   value="ثبت نام" id="submit" style="font-family:'Vazirmatn', sans-serif ;">
 
                     </div>
                 </form>
 
-            </form>
+        
         </div>
 
       <div class="login" >
-              <form id="form"   >
-                <form id="form"  >
+            
+                <form id="login"  >
                     <div class="form-group">
                             <label id="registerafter" for="chk" aria-hidden="true" >فرم ورود</label>
                     </div>
 
 
                     <div class="form-group">
-                            <input type="text" name="Mobile" id="Mobilelogin"  placeholder="شماره موبایل" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="text" name="mobile" id="Mobilelogin"  placeholder="شماره موبایل" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error" ></span>
                     </div>
 
                     <div class="form-group">
-                            <input type="password" name="Password" id="Passwordlogin"  placeholder="کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="password" name="password" id="Passwordlogin"  placeholder="کلمه عبور" style="font-family:'Vazirmatn', sans-serif ;">
                             <span  class="field-validation-error" ></span>
                     </div>
 
                     <div>
-                            <input type="button" onclick="login()"  a value="ثبت نام" id="submit" style="font-family:'Vazirmatn', sans-serif ;">
+                            <input type="submit" onclick="login()"   value=" ورود" id="submit" style="font-family:'Vazirmatn', sans-serif ;">
 
                     </div>  
                     <div id="forget">
@@ -89,14 +85,100 @@
                     </div>
                 </form>
 
-            </form>
+
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="~/waitme/waitme.min.js"></script>
+    <script src="~/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/sweetalert/sweetalert2.all.js"></script>
+    <script src="~/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="~/sweetalert/sweetalert2.js"></script>
     <script>
-        const btn = document.getElementById("registerafter")
-    function Registeruser() {
 
+        //validation with jquery
+        //after submit register
+        const btn = document.getElementById("registerafter")
+        //wait me librarry
+        function startloading(element = 'body') {
+    $(element).waitMe({
+        effect: 'stretch',
+        text: 'صبر کن!',
+        bg: 'rgba(255, 255, 255, 0.7)',
+        color: '#000' 
+        });
+}
+       function closeloading(element = 'body') {
+    $(element).waitMe('hide');
+
+}
+  $('#signup').validate({
+      rules: {
+        firstName: {
+                required: true,
+                minlength: 2,
+                maxlength:40,
+            },
+        lastName: {
+            required: true,
+            minlength: 2,
+        },          
+        mobile: {
+            required: true,
+            minlength: 10,
+            number: true,
+
+        }
+        ,email: {
+            required: true,
+            minlength: 6,
+            email:true,
+        }
+        ,password: {
+            required: true,
+            minlength: 6,
+        }
+        ,confirmpassword: {
+            required: true,
+            minlength: 6,
+        },
+    },
+    messages: {
+        firstName: {
+                required: "  فیلد نام الزامی است",
+                minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد"),
+                maxlenght:"نمیتواند بیشتر {0} باشد"
+            },
+        lastName: {
+            required: "  فیلد نام خانوادگی الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد")
+
+        },          
+        mobile: {
+            required: "  فیلد موبایل الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد"),
+            number:"فرمت موبایل صحیح نیست"
+        },
+         email: {
+            required: "  فیلد ایمیل الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد"),
+            email: "فرمت ایمیل صحیح نیست"
+
+        },
+         password: {
+            required: "  فیلد کلمه عبور الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد")
+        },
+         confirmpassword: {
+            required: "  فیلد تکرار کلمه عبور  الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد")
+        },
+
+    },
+    
+
+    submitHandler:    function Registeruser() {
         var FirstName = $("#FirstName").val();
         var LastName = $("#LastName").val();
         var Email = $("#Email").val();
@@ -111,7 +193,10 @@
             'Email': Email,
             'Password': Password,
             'ConfirmPassword': ConfirmPassword,
+
         };
+                    startloading();
+
         $.ajax({
             contentType: 'application/x-www-form-urlencoded',
             dataType: 'json',
@@ -119,13 +204,15 @@
             url: "Register",
             data: postData,
             success: function (data) {
+
+                closeloading();
               if (data==="isuccess") {
                    swal.fire(
-                       'ثبت نام با موفقیت انجام شبه فرم ورود منتقیل می شوید!!',
+                       'ثبت نام با موفقیت انجام شد به فرم ورود منتقل می شوید!!',
                        data.message,
                        'success'
                    ).then(function (isConfirm) {
-                   document.getElementById("form").reset()
+                   document.getElementById("signup").reset()
                           btn.click()
 
                     });
@@ -133,6 +220,7 @@
 
                }
                else {
+                     closeloading();
 
                    swal.fire(
                        'خطا در ثبت نام!',
@@ -143,6 +231,7 @@
                }
             },
             error: function (request, status, error) {
+                closeloading();
                 swal.fire(
                     'هشدار!',
                     request.responseText,
@@ -151,16 +240,51 @@
             }
         });
     }
+})
+
+
 </script>
 
     <script>
-    function login() {
+    $('#login').validate({
+         rules: {          
+        mobile: {
+            required: true,
+            minlength: 10,
+            number:true,
+        }
+        ,password: {
+            required: true,
+            minlength: 6,
+        }
+    },
+    messages: {
+          
+        mobile: {
+            required: "  فیلد موبایل الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد"),
+            number: ("فرمت موبایل صحیح نیست")
+
+        },
+         password: {
+            required: "  فیلد کلمه عبور الزامی است",
+            minlength: jQuery.validator.format("نمی تواند کمتر از {0} باشد")
+        },
+
+
+    },
+
+   submitHandler:  function login() {
+
         var Mobile = $("#Mobilelogin").val();
         var Password = $("#Passwordlogin").val();
         var postData = {
             'Mobile': Mobile,
             'Password': Password,
+
         };
+          startloading();
+
         $.ajax({
             contentType: 'application/x-www-form-urlencoded',
             dataType: 'json',
@@ -175,10 +299,13 @@
                         'success'
                     ).then(function (isConfirm) {
                         window.location.replace("/");
+
                     });
+                 closeloading();
+
                 }
                 else {
-
+                    closeloading();
                     swal.fire(
                         'هشدار!',
                         data.message,
@@ -187,7 +314,9 @@
                 }
             },
             error: function (request, status, error) {
+                closeloading();
                 swal.fire(
+
                     'هشدار!',
                     request.responseText,
                     'warning'
@@ -195,6 +324,7 @@
             }
         });
     }
+})
 </script>
 </body>
 

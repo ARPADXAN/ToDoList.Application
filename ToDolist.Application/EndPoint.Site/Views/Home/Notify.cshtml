@@ -1,0 +1,29 @@
+﻿@model NotifyViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="container" >
+    <div class="col-md-4">
+        <input asp-for="Title" class="form-Control mt-5" />
+        <input asp-for="Fullname"  class="form-control mt-3"/>
+        <input type="button" value="ارسال یادآور" onclick="send()" class="btn btn-success"> 
+    </div>
+</div>
+@section script{
+    <script>
+        function send()
+        {
+            var data={
+                "Title":$('#Title').val(),
+                "FullName":$('#Fullname').val(),
+            };
+                $.post('/Home/sendnotify',data,function(result){
+                    if(result){
+                        alert("Notification send");
+                    }
+                })
+        }
+    </script>
+}

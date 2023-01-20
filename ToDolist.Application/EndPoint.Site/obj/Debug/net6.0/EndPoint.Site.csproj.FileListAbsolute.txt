@@ -297,3 +297,5 @@ L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\obj\D
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\obj\Debug\net6.0\EndPoint.Site.pdb
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\obj\Debug\net6.0\EndPoint.Site.genruntimeconfig.cache
 L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\obj\Debug\net6.0\ref\EndPoint.Site.dll
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\bin\Debug\net6.0\libman.json
+L:\C#\ASP.NET\TodoList.Application\Code\ToDolist.Application\EndPoint.Site\bin\Debug\net6.0\Quartz.dll

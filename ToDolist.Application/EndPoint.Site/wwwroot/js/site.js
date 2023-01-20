@@ -6,39 +6,30 @@
 
 
 
-function startloading(element = 'body') {
-    $(element).waitMe({
-        effect: 'stretch',
-        text: 'صبر کن!',
-        bg: 'rgba(255, 255, 255, 0.7)',
-        color: '#000' 
-
-});
+function browsernotify(data) {
+    if (!("Notification") in window)
+        alert(data.Title)
 }
-function closeloading(element = 'body') {
-    $(element).waitMe('hide');
+var option = {
+    body: data.title,
+    dir: "rtl",
+    icon: "/"
+};
+if (Notification.permission == "granted") {
+    var notification = new Notification(data.title, option);
+    notification.onclick = function (event) {
+        event.preventDefault;
+        notification.close();
+    }
 
+} else if (Notification.permission != "granted") {
+    Notification.requestPermission().then(function (permission) {
+        if (permission == "garented")
+         var notification = new Notification("", option);
+         notification.onclick = function (event) {
+             event.preventDefault;
+             notification.close();
+    }
+
+})
 }
-
-//function laodmodalforedit(cartId) {
-//    $.ajax({
-//        url: "/load-Edit-modal-body",
-//        type: "get",
-//        data: {
-
-//        },
-//        beforesend: function () {
-            
-//            startloading();
-//        },
-//        success: function (response) {
-//            closeloading();
-//            console.log(response)
-//        },
-//        error: function () {
-//            closeloading();
-
-//        }
-
-//    });
-//}

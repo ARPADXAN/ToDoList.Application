@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
 }
 #wrapper {
     margin-left: auto;
@@ -14,14 +15,15 @@
     position:relative;
 }
 table {
-    margin-block-start:600px;
-    margin-block-end:2000px;
-    margin-top: 400px;
-    margin-left: 750px;
+    margin-block-start: 600px;
+    margin-block-end: 2000px;
+    margin-top: 203px;
+    margin-left: 550px;
+    margin-right:-135px;
     left: 100%;
     transform: translate(-50%, -50%);
     border-collapse: collapse;
-    
+    z-index: 100;
     width: 1000px;
     border: 1px solid #bdc3c7;
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
@@ -70,9 +72,9 @@ tr:hover {
     }
 }
 #addtodo {
-    margin-top: -800px !important;
-    margin-left: 200px;
-    margin-right: 500px;
+    margin-top: 0 !important;
+    margin-left: -200px;
+    margin-right: 387px;
 }
 button {
     
@@ -87,7 +89,18 @@ button {
     transition: 800ms ease all;
     outline: none;
 }
-
+#Searchkey {
+    width: 30%;
+    padding: 20px 117px;
+    margin-top: 0 !important;
+    margin-left: 204px;
+    margin-right: 270px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align:left;
+}
 
 
 #Delete {
@@ -119,6 +132,27 @@ button {
         color: #00bfff !important;
     }
 
+#parent{
+    display:flex;
+}
+#search {
+    margin-top: 0 !important;
+    margin-left: 200px;
+    margin-right: -311px;
+    background: #f44336 !important;
+    color: #fff !important;
+    border: none;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+}
+    #search:hover {
+        background: #fff !important;
+        color: #00bfff !important;
+    }
 button:hover {
     background: #fff;
     color: #54ad53;

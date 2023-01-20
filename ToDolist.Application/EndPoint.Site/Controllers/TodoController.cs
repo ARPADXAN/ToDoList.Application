@@ -14,6 +14,7 @@ using System.Drawing;
 
 namespace EndPoint.Site.Controllers
 {
+    [Authorize]
    
     public class TodoController : Controller
     {
@@ -25,7 +26,12 @@ namespace EndPoint.Site.Controllers
         #region Get ToDo
         public IActionResult Index(RequestuserDto requestuser)
         {
-            var gettodo = CF.GetToDoService.Excute(requestuser).Data;
+            ViewBag.Priority = new SelectList(CF.GetPriorityService.Execute().Data, "Id", "Name");
+            var gettodo = CF.GetToDoService.Excute(new RequestuserDto
+            {
+                page = 1,
+                serachkey = requestuser.serachkey,
+            }).Data;
             return View(gettodo);
            
         }
@@ -109,9 +115,14 @@ namespace EndPoint.Site.Controllers
         #endregion
 
         #region Edit Todo
-        public IActionResult EditTodor(RequestUserForEditToDoService request)
+        public IActionResult EditTodo(RequestUserForEditToDoService request)
         {
-            var result = CF.EditToDoItemService.Execute(request);
+            var result = CF.EditToDoItemService.Execute(new RequestUserForEditToDoService
+            {
+                CartId=request.CartId,
+                Title=request.Title,
+                Description=request.Description,
+            });
             return Json(result);
         }
         #endregion

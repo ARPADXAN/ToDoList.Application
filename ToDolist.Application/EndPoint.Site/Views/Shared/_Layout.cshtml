@@ -94,7 +94,7 @@
             </div>
 
             <div class="bottom-content">
-                <li class="">
+                <li >
                     <a asp-controller="Account" asp-action="Logout">
                         <i class='bx bx-log-out icon' ></i>
                         <span class="text nav-text" >خروج</span>
@@ -138,8 +138,9 @@
           <script src="~/sweetalert/sweetalert2.all.min.js"></script>
           <script src="~/sweetalert/sweetalert2.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-         
-
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+          <script src="~/sitetemplate/js/microsoft-signalr.js"></script>
+          <script src="~/signalr/dist/browser/signalr.min.js"></script>
 <script>
         jalaliDatepicker.startWatch({
           minDate: "attr",
@@ -161,8 +162,16 @@
 
         document.getElementById("aaa").addEventListener("jdp:change", function (e) { console.log(e) });
         </script>
+        <script>
+            var connection =new signalR.HubConnectionBuilder().withUrl("/notify").withAutomaticReconnect().build();
+            connection.start().catch(function(err)
+            {
+                browsernotify(data);
+            });
+        </script>
 
 </body>
 @RenderSection("Scripts", false)
-
+@RenderSection("Modals",false)
+@RenderSection("script",false)
 </html>    

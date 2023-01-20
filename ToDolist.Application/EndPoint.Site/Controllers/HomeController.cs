@@ -3,11 +3,14 @@ using Application.Services.TodoItem.Commands.AddToDoItem;
 using Application.Services.TodoItem.Queries.GetTodo;
 using Azure.Core;
 using Domain.Entites.Cart;
+using EndPoint.Site.Hubs;
 using EndPoint.Site.Models;
 using EndPoint.Site.Models.ViewModels.HomePageViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Persistence.DataBaseContext;
 using System.Diagnostics;
 using static Application.Services.TodoItem.Commands.ChangeStatusToDoItem.ChangeStatusToDoService;
@@ -19,10 +22,12 @@ namespace EndPoint.Site.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICartFacad CF;
-        public HomeController(ILogger<HomeController> logger, ICartFacad cF)
+        private readonly IHubContext<Notify> NF;
+        public HomeController(ILogger<HomeController> logger, ICartFacad cF, IHubContext<Notify> nF)
         {
             CF = cF;
             _logger = logger;
+            NF = nF;
         }
 
 
@@ -100,7 +105,7 @@ namespace EndPoint.Site.Controllers
         [HttpGet]
         public IActionResult AddToDo()
         {
-            return View();
+            return Json("ورودی های خود را کنترل کنید");
         }
         [HttpPost]
         public IActionResult AddToDo(string Title, string? Description, bool haveNofication, string? NoficationDate, string? NoficationTime, long priorityId, long StatusId, IFormCollection form)
@@ -108,7 +113,7 @@ namespace EndPoint.Site.Controllers
             if (!ModelState.IsValid)
             {
 
-                return View();
+                return Json("ورودی های خود را کنترل کنید");
             }
 
             if (haveNofication == true)
@@ -182,9 +187,22 @@ namespace EndPoint.Site.Controllers
              var result= CF.RemoveToDoItemService.Execute(CartId);
             return Json(result);
         }
-     
+
         #endregion
 
+
+        #region notify
+        public IActionResult Notify()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> sendnotify(NotifyViewModel result)
+        {
+            await NF.Clients.All.SendAsync("GetNofication", result);
+            return new JsonResult(true);
+        }
+        #endregion
         #region Other
         public IActionResult Privacy()
         {

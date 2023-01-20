@@ -3,6 +3,9 @@ using Common.Priority;
 using Common.Status;
 using Domain.Attributes;
 using Domain.Entites.Cart;
+using Domain.Entites.User;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Persistence.DataBaseContext
 {
-    public class DataBaseContextMain:DbContext,IDataBaseContext
+    public class DataBaseContextMain: IdentityDbContext<Users>, IDataBaseContext
     {
         public DataBaseContextMain(DbContextOptions<DataBaseContextMain> options):base(options)
         {
@@ -30,6 +33,8 @@ namespace Persistence.DataBaseContext
 
         protected override void OnModelCreating(ModelBuilder Builder)
         {
+            HasKey(Builder);
+            RenameTable(Builder);
             SeedData(Builder);
             HasqueryFilter(Builder);
 
@@ -50,6 +55,29 @@ namespace Persistence.DataBaseContext
             builder.Entity<Cart>()
                  .HasQueryFilter(m => EF.Property<bool>(m, "IsRemoved") == false);
         }
+        #region key For Identity Table
+        private void HasKey(ModelBuilder builder)
+        {
+            builder.Entity<IdentityUserLogin<string>>().HasKey(p => new { p.LoginProvider, p.ProviderKey });
+            builder.Entity<IdentityUserRole<string>>().HasKey(p => new { p.RoleId, p.UserId });
+            builder.Entity<IdentityUserToken<string>>().HasKey(p => new { p.UserId, p.LoginProvider, p.Name });
+        }
+
+        #endregion
+
+
+        #region Rename Table
+        private void RenameTable(ModelBuilder builder)
+        {
+            builder.Entity<IdentityUser<string>>().ToTable("Users", "identity");
+            builder.Entity<IdentityRole<string>>().ToTable("Roles", "identity");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins", "identity");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles", "identity");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims", "identity");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens", "identity");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims", "identity");
+        }
+        #endregion
 
         #region Seed Data
         public void SeedData(ModelBuilder Builder)

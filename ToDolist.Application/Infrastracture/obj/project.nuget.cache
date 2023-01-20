@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "vtoIuH417IjD7CZQPcKvyN8xbC/wa5r20dMzwFTRIJg20bih+HaCmqxjtG0xIkvUqDIj1Lf8qVxvvzUEwuaH5w==",
+  "dgSpecHash": "AsildoYGlq0O85Dr9zwc9fSmE4Yum0UbBV8TkmTBbrdKPJcKwn83VkpSQUt/+DLvJrFR49TQMHB/TLFOAHKwPw==",
   "success": true,
   "projectFilePath": "L:\\C#\\ASP.NET\\TodoList.Application\\Code\\ToDolist.Application\\Infrastracture\\Infrastracture.csproj",
   "expectedPackageFiles": [
@@ -61,6 +61,7 @@
     "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\ARPAD\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\ARPAD\\.nuget\\packages\\quartz\\3.5.0\\quartz.3.5.0.nupkg.sha512",
     "C:\\Users\\ARPAD\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\ARPAD\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\ARPAD\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

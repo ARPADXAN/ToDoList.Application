@@ -1,10 +1,12 @@
 ﻿using Application.Interfaces.Context;
 using Common.Dto;
 using Domain.Entites.Cart;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,13 +16,17 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
     {
         ResultDto<ResultAddCartDto> Excute(RequestAddTodoitemDto request);
     }
+
     public class AddToDoItemService : IAddToDoItemService
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
         private readonly IDataBaseContext DB;
         public AddToDoItemService(IDataBaseContext db)
         {
             DB = db;
         }
+
         public ResultDto<ResultAddCartDto> Excute(RequestAddTodoitemDto request)
         {
             Cart cart = new Cart()
@@ -41,6 +47,7 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
                     PriorityId = findPriority.Id,
                     Cart = cart,
                     CartId = cart.Id,
+                    
                     
                 });
             };
@@ -84,6 +91,9 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
         }
     }
 
+
+
+    
     public class RequestAddTodoitemDto
     {
         [Required(ErrorMessage = "مقدار {0} را وارد کنید ")]
@@ -120,4 +130,5 @@ namespace Application.Services.TodoItem.Commands.AddToDoItem
     {
         public long CartId { get; set; }
     }
+
 }

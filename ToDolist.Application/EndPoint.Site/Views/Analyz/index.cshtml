@@ -39,7 +39,7 @@ hr {
 <script>
 var xValues = ["اضطراری",  "عادی", "فوری "];
 
-          var yValues = [@Model.Critical, @Model.General, @Model.Urgent;
+          var yValues = [@ViewBag.General, @ViewBag.Urgent, @ViewBag.Critical];
   
       
 var barColors = [
@@ -67,7 +67,7 @@ new Chart("myChart1", {
   }
 });
 var xValues = ["تکمیل شده", "در حال تکمیل", "شروع نکرده", "تعلیق"];
-var yValues = [@Model.Complete, @Model.Inprogress, @Model.NotStart, @Model.Suspend];
+var yValues = [@ViewBag.suspend, @ViewBag.Nostart, @ViewBag.InProgress, @ViewBag.isComplete];
 var barColors = ["green", "blue","orange","red"];
 
 new Chart("myChart2", {

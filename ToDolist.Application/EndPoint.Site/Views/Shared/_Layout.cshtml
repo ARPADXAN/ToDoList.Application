@@ -166,6 +166,9 @@
             var connection =new signalR.HubConnectionBuilder().withUrl("/notify").withAutomaticReconnect().build();
             connection.start().catch(function(err)
             {
+                return console.error(err)
+            });
+            connection.on("getNofication",function (data){
                 browsernotify(data);
             });
         </script>
